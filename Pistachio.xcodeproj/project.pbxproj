@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DC2077CF1A8544D7005A9CF2 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* Adapter.swift */; };
+		DC20783B1A868B00005A9CF2 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2078391A868B00005A9CF2 /* Nimble.framework */; };
+		DC20783C1A868B00005A9CF2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC20783A1A868B00005A9CF2 /* Quick.framework */; };
 		DC3927E41A85365C00982AC1 /* LlamaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3927E31A85365C00982AC1 /* LlamaKit.framework */; };
 		DC3927E61A85369C00982AC1 /* LlamaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3927E31A85365C00982AC1 /* LlamaKit.framework */; };
 		DC492A121A83BB59007B52D6 /* Pistachio.h in Headers */ = {isa = PBXBuildFile; fileRef = DC492A111A83BB59007B52D6 /* Pistachio.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		DC2077CE1A8544D7005A9CF2 /* Adapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
+		DC2078391A868B00005A9CF2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		DC20783A1A868B00005A9CF2 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		DC3927E31A85365C00982AC1 /* LlamaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LlamaKit.framework; path = Carthage/Build/iOS/LlamaKit.framework; sourceTree = "<group>"; };
 		DC492A0C1A83BB59007B52D6 /* Pistachio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pistachio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC492A101A83BB59007B52D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC20783B1A868B00005A9CF2 /* Nimble.framework in Frameworks */,
+				DC20783C1A868B00005A9CF2 /* Quick.framework in Frameworks */,
 				DC3927E61A85369C00982AC1 /* LlamaKit.framework in Frameworks */,
 				DC492A181A83BB59007B52D6 /* Pistachio.framework in Frameworks */,
 			);
@@ -66,6 +72,8 @@
 		DC492A021A83BB59007B52D6 = {
 			isa = PBXGroup;
 			children = (
+				DC2078391A868B00005A9CF2 /* Nimble.framework */,
+				DC20783A1A868B00005A9CF2 /* Quick.framework */,
 				DC3927E31A85365C00982AC1 /* LlamaKit.framework */,
 				DC492A0E1A83BB59007B52D6 /* Pistachio */,
 				DC492A1B1A83BB59007B52D6 /* PistachioTests */,
@@ -245,6 +253,8 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/LlamaKit.framework",
 			);
 			outputPaths = (
