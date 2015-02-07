@@ -8,7 +8,16 @@
 
 import LlamaKit
 
-public struct Adapter<A, B, E> {
+public protocol Adapter {
+    typealias A
+    typealias B
+    typealias E
+
+    func encode(a: A) -> Result<B, E>
+    func decode(a: A, from: B) -> Result<A, E>
+}
+
+public struct DictionaryAdapter<A, B, E>: Adapter {
     private let specification: [String: Lens<Result<A, E>, Result<B, E>>]
     private let dictionaryTansformer: ValueTransformer<B, [String: B], E>
 
@@ -18,17 +27,17 @@ public struct Adapter<A, B, E> {
     }
 
     public func encode(a: A) -> Result<B, E> {
-        var result: [String: B] = [String: B]()
+        var dictionary = [String: B]()
         for (key, lens) in self.specification {
             switch get(lens, success(a)) {
             case .Success(let value):
-                result[key] = value.unbox
+                dictionary[key] = value.unbox
             case .Failure(let error):
                 return failure(error.unbox)
             }
         }
 
-        return dictionaryTansformer.reverseTransformedValue(result)
+        return dictionaryTansformer.reverseTransformedValue(dictionary)
     }
 
     public func decode(a: A, from: B) -> Result<A, E> {
