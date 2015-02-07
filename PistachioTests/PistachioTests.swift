@@ -13,8 +13,8 @@ import LlamaKit
 import Pistachio
 
 class Person {
-    class var name: Lens<Person, String> { return Lens(get: { person in person.name }, set: { (inout person: Person, name) in person.name = name; }) }
-    var name: String = ""
+    class var name: Lens<Person, String?> { return Lens(get: { person in person.name }, set: { (inout person: Person, name) in person.name = name; }) }
+    var name: String?
 
     class var father: Lens<Person, Person?> { return Lens(get: { person in person.father }, set: { (inout person: Person, father) in person.father = father }) }
     var father: Person?
@@ -81,9 +81,10 @@ let ArrayValueTransformer: ValueTransformer<[AnyObject], AnyObject, NSError> = (
 })()
 
 let adapter: DictionaryAdapter<Person, AnyObject, NSError> = fix { adapter in
+    let lens: Lens<Result<Person, NSError>, Result<String?, NSError>> = lift(Person.name)
     return DictionaryAdapter(specification: [
-        "name": transform(lift(Person.name), StringValueTransformer),
-        "father": transform(lift(Person.father), lift(adapter, Person(), [String: AnyObject]())),
+        "name": transform(lift(Person.name), lift(StringValueTransformer, String())),
+        "father": transform(lift(Person.father), lift(lift(adapter, Person()), [String: AnyObject]())),
         "children": transform(lift(Person.children), lift(lift(adapter, Person())) >>> ArrayValueTransformer)
     ], dictionaryTansformer: DictionaryTransformer)
 }

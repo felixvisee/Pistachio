@@ -66,6 +66,22 @@ public func <<< <A, B, C, E>(lhs: ValueTransformer<B, C, E>, rhs: ValueTransform
 
 // MARK: - Lift
 
+public func lift<A, B, E>(valueTransformer: ValueTransformer<A, B, E>, defaultTransformedValue: @autoclosure () -> B) -> ValueTransformer<A?, B, E> {
+    let transformValue: A? -> Result<B, E> = { a in
+        if let a = a {
+            return valueTransformer.transformedValue(a)
+        } else {
+            return success(defaultTransformedValue())
+        }
+    }
+
+    let reverseTransformValue: B -> Result<A?, E> = { b in
+        return valueTransformer.reverseTransformedValue(b).map { $0 }
+    }
+
+    return ValueTransformer(transformClosure: transformValue, reverseTransformClosure: reverseTransformValue)
+}
+
 public func lift<A, B, E>(valueTransformer: ValueTransformer<A, B, E>) -> ValueTransformer<[A], [B], E> {
     let transformValue: [A] -> Result<[B], E> = { xs in
         var result = [B]()

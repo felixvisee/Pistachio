@@ -90,19 +90,3 @@ public func lift<A, B, E, T: Adapter where T.A == A, T.B == B, T.E == E>(adapter
 
     return ValueTransformer(transformClosure: transformClosure, reverseTransformClosure: reverseTransformClosure)
 }
-
-public func lift<A, B, E, T: Adapter where T.A == A, T.B == B, T.E == E>(adapter: T, a: @autoclosure () -> A, b: @autoclosure () -> B) -> ValueTransformer<A?, B, E> {
-    let transformClosure: A? -> Result<B, E> = { a in
-        if let a = a {
-            return adapter.encode(a)
-        } else {
-            return success(b())
-        }
-    }
-
-    let reverseTransformClosure: B -> Result<A?, E> = { b in
-        return adapter.decode(a(), from: b).map { $0 }
-    }
-
-    return ValueTransformer(transformClosure: transformClosure, reverseTransformClosure: reverseTransformClosure)
-}
