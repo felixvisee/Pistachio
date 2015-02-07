@@ -63,3 +63,37 @@ infix operator <<< {
 public func <<< <A, B, C, E>(lhs: ValueTransformer<B, C, E>, rhs: ValueTransformer<A, B, E>) -> ValueTransformer<A, C, E> {
     return compose(rhs, lhs)
 }
+
+// MARK: - Lift
+
+public func lift<A, B, E>(valueTransformer: ValueTransformer<A, B, E>) -> ValueTransformer<[A], [B], E> {
+    let transformValue: [A] -> Result<[B], E> = { xs in
+        var result = [B]()
+        for x in xs {
+            switch valueTransformer.transformedValue(x) {
+            case .Success(let value):
+                result.append(value.unbox)
+            case .Failure(let error):
+                return failure(error.unbox)
+            }
+        }
+
+        return success(result)
+    }
+
+    let reverseTransformValue: [B] -> Result<[A], E> = { ys in
+        var result = [A]()
+        for y in ys {
+            switch valueTransformer.reverseTransformedValue(y) {
+            case .Success(let value):
+                result.append(value.unbox)
+            case .Failure(let error):
+                return failure(error.unbox)
+            }
+        }
+
+        return success(result)
+    }
+
+    return ValueTransformer(transformClosure: transformValue, reverseTransformClosure: reverseTransformValue)
+}
