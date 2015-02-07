@@ -29,18 +29,18 @@ class Person {
     }
 }
 
-let DictionaryTransformer: ValueTransformer<AnyObject, [String: AnyObject], NSError> = ({
-    let transformClosure: AnyObject -> Result<[String: AnyObject], NSError> = { value in
+let DictionaryTransformer: ValueTransformer<[String: AnyObject], AnyObject, NSError> = ({
+    let transformClosure: [String: AnyObject] -> Result<AnyObject, NSError> = { value in
+        return success(value)
+    }
+
+    let reverseTransformClosure: AnyObject -> Result<[String: AnyObject], NSError> = { value in
         switch value {
         case let value as [String: AnyObject]:
             return success(value)
         default:
             return failure(NSError())
         }
-    }
-
-    let reverseTransformClosure: [String: AnyObject] -> Result<AnyObject, NSError> = { value in
-        return success(value)
     }
 
     return ValueTransformer(transformClosure: transformClosure, reverseTransformClosure: reverseTransformClosure)

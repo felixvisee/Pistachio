@@ -35,9 +35,9 @@ public struct LazyAdapter<A, B, E, T: Adapter where T.A == A, T.B == B, T.E == E
 
 public struct DictionaryAdapter<A, B, E>: Adapter {
     private let specification: [String: Lens<Result<A, E>, Result<B, E>>]
-    private let dictionaryTansformer: ValueTransformer<B, [String: B], E>
+    private let dictionaryTansformer: ValueTransformer<[String: B], B, E>
 
-    public init(specification: [String: Lens<Result<A, E>, Result<B, E>>], dictionaryTansformer: ValueTransformer<B, [String: B], E>) {
+    public init(specification: [String: Lens<Result<A, E>, Result<B, E>>], dictionaryTansformer: ValueTransformer<[String: B], B, E>) {
         self.specification = specification
         self.dictionaryTansformer = dictionaryTansformer
     }
@@ -53,11 +53,11 @@ public struct DictionaryAdapter<A, B, E>: Adapter {
             }
         }
 
-        return dictionaryTansformer.reverseTransformedValue(dictionary)
+        return dictionaryTansformer.transformedValue(dictionary)
     }
 
     public func decode(a: A, from: B) -> Result<A, E> {
-        return dictionaryTansformer.transformedValue(from).flatMap { dictionary in
+        return dictionaryTansformer.reverseTransformedValue(from).flatMap { dictionary in
             var result: Result<A, E> = success(a)
             for (key, lens) in self.specification {
                 if let value = dictionary[key] {
