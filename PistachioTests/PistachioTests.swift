@@ -19,6 +19,9 @@ class Person {
     class var father: Lens<Person, Person?> { return Lens(get: { person in person.father }, set: { (inout person: Person, father) in person.father = father }) }
     var father: Person?
 
+    class var children: Lens<Person, [Person]> { return Lens(get: { person in person.children }, set: { (inout person: Person, children) in person.children = children }) }
+    var children: [Person] = []
+
     init() {}
 
     init(name: String) {
@@ -60,14 +63,39 @@ let StringValueTransformer: ValueTransformer<String, AnyObject, NSError> = ({
     return ValueTransformer(transformClosure: transformClosure, reverseTransformClosure: reverseTransformClosure)
 })()
 
-let adapter: Adapter<Person, AnyObject, NSError> = Adapter(specification: [
-    "name": transform(lift(Person.name), StringValueTransformer)
-], dictionaryTansformer: DictionaryTransformer)
+let ArrayValueTransformer: ValueTransformer<[AnyObject], AnyObject, NSError> = ({
+    let transformClosure: [AnyObject] -> Result<AnyObject, NSError> = { value in
+        return success(value)
+    }
+
+    let reverseTransformClosure: AnyObject -> Result<[AnyObject], NSError> = { value in
+        switch value {
+        case let value as [AnyObject]:
+            return success(value)
+        default:
+            return failure(NSError())
+        }
+    }
+
+    return ValueTransformer(transformClosure: transformClosure, reverseTransformClosure: reverseTransformClosure)
+})()
+
+let adapter: DictionaryAdapter<Person, AnyObject, NSError> = fix { adapter in
+    return DictionaryAdapter(specification: [
+        "name": transform(lift(Person.name), StringValueTransformer),
+        "father": transform(lift(Person.father), lift(adapter, Person(), [String: AnyObject]())),
+        "children": transform(lift(Person.children), lift(lift(adapter, Person())) >>> ArrayValueTransformer)
+    ], dictionaryTansformer: DictionaryTransformer)
+}
 
 class PistachioTests: XCTestCase {
     func testExample() {
-        let input: AnyObject = ["name": "Felix"]
+        let input: AnyObject = ["name": "Felix", "father": ["name": "Stefen"]]
+
         let person = adapter.decode(Person(), from: input)
+
+        XCTAssert(person.value?.father?.name == "Stefen")
+
         let output = adapter.encode(person.value!)
 
         XCTAssert(input["name"] as String == output.value!["name"] as String)
