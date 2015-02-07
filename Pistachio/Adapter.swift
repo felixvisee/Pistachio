@@ -17,6 +17,22 @@ public protocol Adapter {
     func decode(a: A, from: B) -> Result<A, E>
 }
 
+public struct LazyAdapter<A, B, E, T: Adapter where T.A == A, T.B == B, T.E == E>: Adapter {
+    private let adapter: () -> T
+
+    public init(adapter: @autoclosure () -> T) {
+        self.adapter = adapter
+    }
+
+    public func encode(a: A) -> Result<B, E> {
+        return adapter().encode(a)
+    }
+
+    public func decode(a: A, from: B) -> Result<A, E> {
+        return adapter().decode(a, from: from)
+    }
+}
+
 public struct DictionaryAdapter<A, B, E>: Adapter {
     private let specification: [String: Lens<Result<A, E>, Result<B, E>>]
     private let dictionaryTansformer: ValueTransformer<B, [String: B], E>
@@ -53,4 +69,10 @@ public struct DictionaryAdapter<A, B, E>: Adapter {
             return result
         }
     }
+}
+
+// MARK: - Fix
+
+public func fix<A, B, E, T: Adapter where T.A == A, T.B == B, T.E == E>(f: LazyAdapter<A, B, E, T> -> T) -> T {
+    return f(LazyAdapter(adapter: fix(f)))
 }
