@@ -79,13 +79,13 @@ public func fix<A, B, E, T: Adapter where T.A == A, T.B == B, T.E == E>(f: LazyA
 
 // MARK: - Lift
 
-public func lift<A, B, E, T: Adapter where T.A == A, T.B == B, T.E == E>(adapter: T, newReverseTransformedValue: @autoclosure () -> A) -> ValueTransformer<A, B, E> {
+public func lift<A, B, E, T: Adapter where T.A == A, T.B == B, T.E == E>(adapter: T, a: @autoclosure () -> A) -> ValueTransformer<A, B, E> {
     let transformClosure: A -> Result<B, E> = { a in
         return adapter.encode(a)
     }
 
     let reverseTransformClosure: B -> Result<A, E> = { b in
-        return adapter.decode(newReverseTransformedValue(), from: b)
+        return adapter.decode(a(), from: b)
     }
 
     return ValueTransformer(transformClosure: transformClosure, reverseTransformClosure: reverseTransformClosure)
