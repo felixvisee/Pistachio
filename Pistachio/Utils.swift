@@ -22,11 +22,11 @@ public func zip<A, B>(a: [A], b: [B]) -> [(A, B)] {
 // MARK: - Unzip
 
 public func unzip<A, B>(x: [(A, B)]) -> ([A], [B]) {
-    var ax = [A](), bx = [B]()
+    var xs = [A](), ys = [B]()
     for (a, b) in x {
-        ax.append(a)
-        bx.append(b)
+        xs.append(a)
+        ys.append(b)
     }
 
-    return (ax, bx)
+    return (xs, ys)
 }
