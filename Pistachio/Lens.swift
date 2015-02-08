@@ -115,6 +115,10 @@ public func lift<A, B, E>(lens: Lens<A, B>) -> Lens<Result<A, E>, Result<B, E>> 
 
 // MARK: - Transform
 
+public func transform<A, B, C, E>(lens: Lens<A, B>, valueTransformer: ValueTransformer<B, C, E>) -> Lens<Result<A, E>, Result<C, E>> {
+    return transform(lift(lens), valueTransformer)
+}
+
 public func transform<A, B, C, E>(lens: Lens<Result<A, E>, Result<B, E>>, valueTransformer: ValueTransformer<B, C, E>) -> Lens<Result<A, E>, Result<C, E>> {
     let get: Result<A, E> -> Result<C, E> = { a in
         return lens.get(a).flatMap { valueTransformer.transformedValue($0) }
