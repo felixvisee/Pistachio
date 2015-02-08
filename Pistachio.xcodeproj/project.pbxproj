@@ -11,6 +11,7 @@
 		DC20783B1A868B00005A9CF2 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2078391A868B00005A9CF2 /* Nimble.framework */; };
 		DC20783C1A868B00005A9CF2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC20783A1A868B00005A9CF2 /* Quick.framework */; };
 		DC2078401A868C25005A9CF2 /* LensSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20783F1A868C25005A9CF2 /* LensSpec.swift */; };
+		DC2078441A87C08A005A9CF2 /* UtilsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2078431A87C08A005A9CF2 /* UtilsSpec.swift */; };
 		DC3927E41A85365C00982AC1 /* LlamaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3927E31A85365C00982AC1 /* LlamaKit.framework */; };
 		DC3927E61A85369C00982AC1 /* LlamaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3927E31A85365C00982AC1 /* LlamaKit.framework */; };
 		DC492A121A83BB59007B52D6 /* Pistachio.h in Headers */ = {isa = PBXBuildFile; fileRef = DC492A111A83BB59007B52D6 /* Pistachio.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -35,6 +36,7 @@
 		DC2078391A868B00005A9CF2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DC20783A1A868B00005A9CF2 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		DC20783F1A868C25005A9CF2 /* LensSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensSpec.swift; sourceTree = "<group>"; };
+		DC2078431A87C08A005A9CF2 /* UtilsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilsSpec.swift; sourceTree = "<group>"; };
 		DC3927E31A85365C00982AC1 /* LlamaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LlamaKit.framework; path = Carthage/Build/iOS/LlamaKit.framework; sourceTree = "<group>"; };
 		DC492A0C1A83BB59007B52D6 /* Pistachio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pistachio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC492A101A83BB59007B52D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				DC20783F1A868C25005A9CF2 /* LensSpec.swift */,
+				DC2078431A87C08A005A9CF2 /* UtilsSpec.swift */,
 				DC492A1C1A83BB59007B52D6 /* Supporting Files */,
 			);
 			path = PistachioTests;
@@ -281,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC2078441A87C08A005A9CF2 /* UtilsSpec.swift in Sources */,
 				DC2078401A868C25005A9CF2 /* LensSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
