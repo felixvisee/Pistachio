@@ -67,19 +67,19 @@ public func <<< <A, B, C, E>(lhs: ValueTransformer<B, C, E>, rhs: ValueTransform
 // MARK: - Lift
 
 public func lift<A, B: Equatable, E>(valueTransformer: ValueTransformer<A, B, E>, defaultTransformedValue: @autoclosure () -> B) -> ValueTransformer<A?, B, E> {
-    let transformValue: A? -> Result<B, E> = { a in
-        if let a = a {
-            return valueTransformer.transformedValue(a)
+    let transformValue: A? -> Result<B, E> = { value in
+        if let value = value {
+            return valueTransformer.transformedValue(value)
         } else {
             return success(defaultTransformedValue())
         }
     }
 
-    let reverseTransformValue: B -> Result<A?, E> = { b in
-        if b == defaultTransformedValue() {
+    let reverseTransformValue: B -> Result<A?, E> = { value in
+        if value == defaultTransformedValue() {
             return success(nil)
         } else {
-            return valueTransformer.reverseTransformedValue(b).map { $0 }
+            return valueTransformer.reverseTransformedValue(value).map { $0 }
         }
     }
 
@@ -87,10 +87,10 @@ public func lift<A, B: Equatable, E>(valueTransformer: ValueTransformer<A, B, E>
 }
 
 public func lift<A, B, E>(valueTransformer: ValueTransformer<A, B, E>) -> ValueTransformer<[A], [B], E> {
-    let transformValue: [A] -> Result<[B], E> = { xs in
+    let transformValue: [A] -> Result<[B], E> = { values in
         var result = [B]()
-        for x in xs {
-            switch valueTransformer.transformedValue(x) {
+        for element in values {
+            switch valueTransformer.transformedValue(element) {
             case .Success(let value):
                 result.append(value.unbox)
             case .Failure(let error):
@@ -101,10 +101,10 @@ public func lift<A, B, E>(valueTransformer: ValueTransformer<A, B, E>) -> ValueT
         return success(result)
     }
 
-    let reverseTransformValue: [B] -> Result<[A], E> = { ys in
+    let reverseTransformValue: [B] -> Result<[A], E> = { values in
         var result = [A]()
-        for y in ys {
-            switch valueTransformer.reverseTransformedValue(y) {
+        for element in values {
+            switch valueTransformer.reverseTransformedValue(element) {
             case .Success(let value):
                 result.append(value.unbox)
             case .Failure(let error):
