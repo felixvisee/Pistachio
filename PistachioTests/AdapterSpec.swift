@@ -66,13 +66,13 @@ class AdapterSpec: QuickSpec {
         describe("A DictionaryAdapter") {
             let adapter = Adapters.inner
 
-            it("should encode a structure") {
+            it("should encode a model") {
                 let result = adapter.encode(Inner(count: 1))
 
                 expect(result.value as? [String: Int]).to(equal([ "count": 1 ]))
             }
 
-            it("should decode data") {
+            it("should decode a model from data") {
                 let result = adapter.decode(Inner(count: 2), from: [ "count": 3 ])
 
                 expect(result.value?.count).to(equal(3))

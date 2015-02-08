@@ -9,43 +9,43 @@
 import LlamaKit
 
 public protocol Adapter {
-    typealias A
-    typealias B
-    typealias E
+    typealias Model
+    typealias Data
+    typealias Error
 
-    func encode(a: A) -> Result<B, E>
-    func decode(a: A, from: B) -> Result<A, E>
+    func encode(model: Model) -> Result<Data, Error>
+    func decode(model: Model, from data: Data) -> Result<Model, Error>
 }
 
-public struct LazyAdapter<A, B, E, T: Adapter where T.A == A, T.B == B, T.E == E>: Adapter {
+public struct LazyAdapter<Model, Data, Error, T: Adapter where T.Model == Model, T.Data == Data, T.Error == Error>: Adapter {
     private let adapter: () -> T
 
     public init(adapter: @autoclosure () -> T) {
         self.adapter = adapter
     }
 
-    public func encode(a: A) -> Result<B, E> {
-        return adapter().encode(a)
+    public func encode(model: Model) -> Result<Data, Error> {
+        return adapter().encode(model)
     }
 
-    public func decode(a: A, from: B) -> Result<A, E> {
-        return adapter().decode(a, from: from)
+    public func decode(model: Model, from data: Data) -> Result<Model, Error> {
+        return adapter().decode(model, from: data)
     }
 }
 
-public struct DictionaryAdapter<A, B, E>: Adapter {
-    private let specification: [String: Lens<Result<A, E>, Result<B, E>>]
-    private let dictionaryTansformer: ValueTransformer<[String: B], B, E>
+public struct DictionaryAdapter<Model, Data, Error>: Adapter {
+    private let specification: [String: Lens<Result<Model, Error>, Result<Data, Error>>]
+    private let dictionaryTansformer: ValueTransformer<[String: Data], Data, Error>
 
-    public init(specification: [String: Lens<Result<A, E>, Result<B, E>>], dictionaryTansformer: ValueTransformer<[String: B], B, E>) {
+    public init(specification: [String: Lens<Result<Model, Error>, Result<Data, Error>>], dictionaryTansformer: ValueTransformer<[String: Data], Data, Error>) {
         self.specification = specification
         self.dictionaryTansformer = dictionaryTansformer
     }
 
-    public func encode(a: A) -> Result<B, E> {
-        var dictionary = [String: B]()
+    public func encode(model: Model) -> Result<Data, Error> {
+        var dictionary = [String: Data]()
         for (key, lens) in self.specification {
-            switch get(lens, success(a)) {
+            switch get(lens, success(model)) {
             case .Success(let value):
                 dictionary[key] = value.unbox
             case .Failure(let error):
@@ -56,9 +56,9 @@ public struct DictionaryAdapter<A, B, E>: Adapter {
         return dictionaryTansformer.transformedValue(dictionary)
     }
 
-    public func decode(a: A, from: B) -> Result<A, E> {
-        return dictionaryTansformer.reverseTransformedValue(from).flatMap { dictionary in
-            var result: Result<A, E> = success(a)
+    public func decode(model: Model, from data: Data) -> Result<Model, Error> {
+        return dictionaryTansformer.reverseTransformedValue(data).flatMap { dictionary in
+            var result: Result<Model, Error> = success(model)
             for (key, lens) in self.specification {
                 if let value = dictionary[key] {
                     result = set(lens, result, success(value))
@@ -73,19 +73,19 @@ public struct DictionaryAdapter<A, B, E>: Adapter {
 
 // MARK: - Fix
 
-public func fix<A, B, E, T: Adapter where T.A == A, T.B == B, T.E == E>(f: LazyAdapter<A, B, E, T> -> T) -> T {
+public func fix<Model, Data, Error, T: Adapter where T.Model == Model, T.Data == Data, T.Error == Error>(f: LazyAdapter<Model, Data, Error, T> -> T) -> T {
     return f(LazyAdapter(adapter: fix(f)))
 }
 
 // MARK: - Lift
 
-public func lift<A, B, E, T: Adapter where T.A == A, T.B == B, T.E == E>(adapter: T, a: @autoclosure () -> A) -> ValueTransformer<A, B, E> {
-    let transformClosure: A -> Result<B, E> = { a in
-        return adapter.encode(a)
+public func lift<Model, Data, Error, T: Adapter where T.Model == Model, T.Data == Data, T.Error == Error>(adapter: T, model: @autoclosure () -> Model) -> ValueTransformer<Model, Data, Error> {
+    let transformClosure: Model -> Result<Data, Error> = { model in
+        return adapter.encode(model)
     }
 
-    let reverseTransformClosure: B -> Result<A, E> = { b in
-        return adapter.decode(a(), from: b)
+    let reverseTransformClosure: Data -> Result<Model, Error> = { data in
+        return adapter.decode(model(), from: data)
     }
 
     return ValueTransformer(transformClosure: transformClosure, reverseTransformClosure: reverseTransformClosure)
