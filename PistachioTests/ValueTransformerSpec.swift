@@ -102,7 +102,7 @@ class ValueTransformerSpec: QuickSpec {
                     expect(result.value).to(equal("7"))
                 }
 
-                it("should use the default transformed value if the input is nil") {
+                it("should return the default transformed value if the input is nil") {
                     let result = valueTransformer.transformedValue(nil)
 
                     expect(result.value).to(equal("default"))
@@ -112,6 +112,12 @@ class ValueTransformerSpec: QuickSpec {
                     let result = valueTransformer.reverseTransformedValue("8")
 
                     expect(result.value!).to(equal(8))
+                }
+
+                it("should return nil if the input is the default transformed value") {
+                    let result = valueTransformer.reverseTransformedValue("default")
+
+                    expect(result.value!).to(beNil())
                 }
             }
 
