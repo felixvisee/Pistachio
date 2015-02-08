@@ -154,35 +154,30 @@ class LensSpec: QuickSpec {
                 it("should get values") {
                     let result = get(lifted, success(inner))
 
-                    expect(result.isSuccess).to(beTrue())
                     expect(result.value).to(equal(5))
                 }
 
                 it("should return structure failures on get") {
                     let result = get(lifted, failure(error))
 
-                    expect(result.isSuccess).to(beFalse())
                     expect(result.error).to(beIdenticalTo(error))
                 }
 
                 it("should set values") {
                     let result = set(lifted, success(inner), success(3))
 
-                    expect(result.isSuccess).to(beTrue())
                     expect(result.value?.count).to(equal(3))
                 }
 
                 it("should return structure failures on set") {
                     let result = set(lifted, failure(error), success(3))
 
-                    expect(result.isSuccess).to(beFalse())
                     expect(result.error).to(beIdenticalTo(error))
                 }
 
                 it("should return value failures on set") {
                     let result = set(lifted, success(inner), failure(error))
 
-                    expect(result.isSuccess).to(beFalse())
                     expect(result.error).to(beIdenticalTo(error))
                 }
             }
@@ -196,14 +191,12 @@ class LensSpec: QuickSpec {
             it("should get values") {
                 let result = get(transformed, success(outer))
 
-                expect(result.isSuccess).to(beTrue())
                 expect(result.value).to(equal("0"))
             }
 
             it("should set values") {
                 let result = set(transformed, success(outer), success("2"))
 
-                expect(result.isSuccess).to(beTrue())
                 expect(result.value?.count).to(equal(2))
             }
         }
