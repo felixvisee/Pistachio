@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC13E2411A87D3F9006DC3CA /* AdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */; };
 		DC2077CF1A8544D7005A9CF2 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* Adapter.swift */; };
 		DC20783B1A868B00005A9CF2 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2078391A868B00005A9CF2 /* Nimble.framework */; };
 		DC20783C1A868B00005A9CF2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC20783A1A868B00005A9CF2 /* Quick.framework */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterSpec.swift; sourceTree = "<group>"; };
 		DC2077CE1A8544D7005A9CF2 /* Adapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
 		DC2078391A868B00005A9CF2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DC20783A1A868B00005A9CF2 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		DC492A1B1A83BB59007B52D6 /* PistachioTests */ = {
 			isa = PBXGroup;
 			children = (
+				DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */,
 				DC20783F1A868C25005A9CF2 /* LensSpec.swift */,
 				DC2078431A87C08A005A9CF2 /* UtilsSpec.swift */,
 				DC2078451A87CCC5005A9CF2 /* ValueTransformerSpec.swift */,
@@ -287,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC13E2411A87D3F9006DC3CA /* AdapterSpec.swift in Sources */,
 				DC2078461A87CCC5005A9CF2 /* ValueTransformerSpec.swift in Sources */,
 				DC2078441A87C08A005A9CF2 /* UtilsSpec.swift in Sources */,
 				DC2078401A868C25005A9CF2 /* LensSpec.swift in Sources */,
