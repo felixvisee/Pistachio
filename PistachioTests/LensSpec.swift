@@ -9,6 +9,7 @@
 import Quick
 import Nimble
 
+import LlamaKit
 import Pistachio
 
 struct Inner: Equatable {
@@ -50,6 +51,24 @@ struct InnerLenses {
     })
 }
 
+struct ValueTransformers {
+    static let string: ValueTransformer<Int, String, NSError> = ({
+        let transformClosure: Int -> Result<String, NSError> = { value in
+            return success(String(value))
+        }
+
+        let reverseTransformClosure: String -> Result<Int, NSError> = { value in
+            if let value = value.toInt() {
+                return success(value)
+            } else {
+                return failure(NSError())
+            }
+        }
+
+        return ValueTransformer(transformClosure: transformClosure, reverseTransformClosure: reverseTransformClosure)
+    })()
+}
+
 class LensSpec: QuickSpec {
     override func spec() {
         describe("A Lens") {
@@ -89,39 +108,103 @@ class LensSpec: QuickSpec {
         }
 
         describe("Lifted lenses") {
-            let inner = [
-                Inner(count: 1),
-                Inner(count: 2),
-                Inner(count: 3),
-                Inner(count: 4)
-            ]
+            context("for arrays") {
+                let inner = [
+                    Inner(count: 1),
+                    Inner(count: 2),
+                    Inner(count: 3),
+                    Inner(count: 4)
+                ]
 
-            let lifted = lift(InnerLenses.count)
+                let lifted = lift(InnerLenses.count)
+
+                it("should get values") {
+                    let result = get(lifted, inner)
+
+                    expect(result).to(equal([ 1, 2, 3, 4 ]))
+                }
+
+                it("should set values") {
+                    let result = set(lifted, inner, [ 2, 4, 6, 8 ])
+
+                    expect(result).to(equal([
+                        Inner(count: 2),
+                        Inner(count: 4),
+                        Inner(count: 6),
+                        Inner(count: 8)
+                    ]))
+                }
+
+                it("should reduce the resulting array size accordingly") {
+                    // Does this make sense?
+                    let result = set(lifted, inner, [ 42 ])
+
+                    expect(result).to(equal([
+                        Inner(count: 42)
+                    ]))
+                }
+            }
+
+            context("for results") {
+                let inner = Inner(count: 5)
+                let error = NSError()
+
+                let lifted: Lens<Result<Inner, NSError>, Result<Int, NSError>> = lift(InnerLenses.count)
+
+                it("should get values") {
+                    let result = get(lifted, success(inner))
+
+                    expect(result.isSuccess).to(beTrue())
+                    expect(result.value).to(equal(5))
+                }
+
+                it("should return structure failures on get") {
+                    let result = get(lifted, failure(error))
+
+                    expect(result.isSuccess).to(beFalse())
+                    expect(result.error).to(beIdenticalTo(error))
+                }
+
+                it("should set values") {
+                    let result = set(lifted, success(inner), success(3))
+
+                    expect(result.isSuccess).to(beTrue())
+                    expect(result.value?.count).to(equal(3))
+                }
+
+                it("should return structure failures on set") {
+                    let result = set(lifted, failure(error), success(3))
+
+                    expect(result.isSuccess).to(beFalse())
+                    expect(result.error).to(beIdenticalTo(error))
+                }
+
+                it("should return value failures on set") {
+                    let result = set(lifted, success(inner), failure(error))
+
+                    expect(result.isSuccess).to(beFalse())
+                    expect(result.error).to(beIdenticalTo(error))
+                }
+            }
+        }
+
+        describe("Transformed lenses") {
+            let outer = Outer(count: 0)
+
+            let transformed = transform(lift(OuterLenses.count), ValueTransformers.string)
 
             it("should get values") {
-                let result = get(lifted, inner)
+                let result = get(transformed, success(outer))
 
-                expect(result).to(equal([ 1, 2, 3, 4 ]))
+                expect(result.isSuccess).to(beTrue())
+                expect(result.value).to(equal("0"))
             }
 
             it("should set values") {
-                let result = set(lifted, inner, [ 2, 4, 6, 8 ])
+                let result = set(transformed, success(outer), success("2"))
 
-                expect(result).to(equal([
-                    Inner(count: 2),
-                    Inner(count: 4),
-                    Inner(count: 6),
-                    Inner(count: 8)
-                ]))
-            }
-
-            it("should reduce the resulting array size accordingly") {
-                // Does this make sense?
-                let result = set(lifted, inner, [ 42 ])
-
-                expect(result).to(equal([
-                    Inner(count: 42)
-                ]))
+                expect(result.isSuccess).to(beTrue())
+                expect(result.value?.count).to(equal(2))
             }
         }
 
