@@ -51,24 +51,6 @@ struct InnerLenses {
     })
 }
 
-struct ValueTransformers {
-    static let string: ValueTransformer<Int, String, NSError> = ({
-        let transformClosure: Int -> Result<String, NSError> = { value in
-            return success(String(value))
-        }
-
-        let reverseTransformClosure: String -> Result<Int, NSError> = { value in
-            if let value = value.toInt() {
-                return success(value)
-            } else {
-                return failure(NSError())
-            }
-        }
-
-        return ValueTransformer(transformClosure: transformClosure, reverseTransformClosure: reverseTransformClosure)
-    })()
-}
-
 class LensSpec: QuickSpec {
     override func spec() {
         describe("A Lens") {
