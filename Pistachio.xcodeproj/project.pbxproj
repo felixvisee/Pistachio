@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC071B9F1A8810BE00DE471C /* NSNumberValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC071B9E1A8810BE00DE471C /* NSNumberValueTransformers.swift */; };
 		DC13E2411A87D3F9006DC3CA /* AdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */; };
 		DC2077CF1A8544D7005A9CF2 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* Adapter.swift */; };
 		DC20783B1A868B00005A9CF2 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2078391A868B00005A9CF2 /* Nimble.framework */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC071B9E1A8810BE00DE471C /* NSNumberValueTransformers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberValueTransformers.swift; sourceTree = "<group>"; };
 		DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterSpec.swift; sourceTree = "<group>"; };
 		DC2077CE1A8544D7005A9CF2 /* Adapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
 		DC2078391A868B00005A9CF2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
@@ -75,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC071B9D1A8810AC00DE471C /* Value Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				DC071B9E1A8810BE00DE471C /* NSNumberValueTransformers.swift */,
+			);
+			name = "Value Transformers";
+			sourceTree = "<group>";
+		};
 		DC492A021A83BB59007B52D6 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +114,7 @@
 				DC492A281A83BB73007B52D6 /* Lens.swift */,
 				DC492A2D1A83BD33007B52D6 /* Utils.swift */,
 				DC492A351A84096D007B52D6 /* ValueTransformer.swift */,
+				DC071B9D1A8810AC00DE471C /* Value Transformers */,
 				DC492A0F1A83BB59007B52D6 /* Supporting Files */,
 			);
 			path = Pistachio;
@@ -279,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC071B9F1A8810BE00DE471C /* NSNumberValueTransformers.swift in Sources */,
 				DC2077CF1A8544D7005A9CF2 /* Adapter.swift in Sources */,
 				DC492A361A84096D007B52D6 /* ValueTransformer.swift in Sources */,
 				DC492A291A83BB73007B52D6 /* Lens.swift in Sources */,
