@@ -127,10 +127,6 @@ public func transform<A, B, C, E>(lens: Lens<Result<A, E>, Result<B, E>>, valueT
     return Lens(get: get, set: set)
 }
 
-public func transform<A, B, C, E>(lens: Lens<Result<A, E>, Result<B, E>>)(valueTransformer: ValueTransformer<B, C, E>) -> Lens<Result<A, E>, Result<C, E>> {
-    return transform(lens, valueTransformer)
-}
-
 // MARK: - Split
 
 public func split<A, B, C, D>(left: Lens<A, B>, right: Lens<C, D>) -> Lens<(A, C), (B, D)> {
