@@ -93,10 +93,12 @@ Adapters handle encoding to and decoding from data:
 ```swift
 var person = Person(name: "Seb", origin: Origin(city: "Berlin"))
 var data = adapter.encode(person) // == [ "name": "Seb", "origin": [ "city": "Berlin" ] ]
-adapter.decode(Person(name: "", origin: Origin(city: "")), from: data) // == person
+adapter.decode(Person(name: "", origin: Origin(city: "")), from: data.value!) // == person
 ```
 
 Of course, you can also lift adapters as well as compose and lift value transformers. You can even fix your adapter if your model is recursive.
+
+Actually, the return value of both `encode` and `decode` is a `Result` (by [LlamaKit](https://github.com/LlamaKit/LlamaKit)), which either holds the encoded/decoded value or an error. This enables you to gracefully handle coding errors.
 
 ## About
 
