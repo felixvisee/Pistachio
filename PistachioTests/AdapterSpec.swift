@@ -13,52 +13,38 @@ import LlamaKit
 import Pistachio
 
 extension ValueTransformers {
-    static let int: ValueTransformer<Int, AnyObject, NSError> = ({
-        let transformClosure: Int -> Result<AnyObject, NSError> = { value in
+    static let int: ValueTransformer<Int, AnyObject, NSError> = ValueTransformer(transformClosure: { value in
+        return success(value)
+    }, reverseTransformClosure: { value in
+        switch value {
+        case let value as Int:
             return success(value)
+        default:
+            return failure(NSError())
         }
+    })
 
-        let reverseTransformClosure: AnyObject -> Result<Int, NSError> = { value in
-            switch value {
-            case let value as Int:
-                return success(value)
-            default:
-                return failure(NSError())
-            }
-        }
-
-        return ValueTransformer(transformClosure: transformClosure, reverseTransformClosure: reverseTransformClosure)
-    })()
-}
-
-struct DictionaryTransformers {
-    static let anyObject: ValueTransformer<[String: AnyObject], AnyObject, NSError> = ({
-        let transformClosure: [String: AnyObject] -> Result<AnyObject, NSError> = { value in
+    static let dictionary: ValueTransformer<[String: AnyObject], AnyObject, NSError> = ValueTransformer(transformClosure: { value in
+        return success(value)
+    }, reverseTransformClosure: { value in
+        switch value {
+        case let value as [String: AnyObject]:
             return success(value)
+        default:
+            return failure(NSError())
         }
-
-        let reverseTransformClosure: AnyObject -> Result<[String: AnyObject], NSError> = { value in
-            switch value {
-            case let value as [String: AnyObject]:
-                return success(value)
-            default:
-                return failure(NSError())
-            }
-        }
-
-        return ValueTransformer(transformClosure: transformClosure, reverseTransformClosure: reverseTransformClosure)
-    })()
+    })
 }
 
 struct Adapters {
     static let inner = DictionaryAdapter(specification: [
         "count": transform(InnerLenses.count, ValueTransformers.int)
-    ], dictionaryTansformer: DictionaryTransformers.anyObject)
+    ], dictionaryTansformer: ValueTransformers.dictionary)
 
     static let outer = DictionaryAdapter(specification: [
         "count": transform(OuterLenses.count, ValueTransformers.int),
         "inner": transform(OuterLenses.inner, lift(inner, Inner(count: 0)))
-    ], dictionaryTansformer: DictionaryTransformers.anyObject)
+    ], dictionaryTansformer: ValueTransformers.dictionary)
 }
 
 class AdapterSpec: QuickSpec {
