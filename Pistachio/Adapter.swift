@@ -44,7 +44,7 @@ public struct DictionaryAdapter<Model, Data, Error>: Adapter {
 
     public func encode(model: Model) -> Result<Data, Error> {
         var dictionary = [String: Data]()
-        for (key, lens) in self.specification {
+        for (key, lens) in specification {
             switch get(lens, success(model)) {
             case .Success(let value):
                 dictionary[key] = value.unbox

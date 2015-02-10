@@ -18,11 +18,11 @@ public struct ValueTransformer<A, B, E> {
     }
 
     public func transformedValue(value: A) -> Result<B, E> {
-        return self.transformClosure(value)
+        return transformClosure(value)
     }
 
     public func reverseTransformedValue(value: B) -> Result<A, E> {
-        return self.reverseTransformClosure(value)
+        return reverseTransformClosure(value)
     }
 }
 
