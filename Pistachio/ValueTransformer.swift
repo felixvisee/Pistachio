@@ -35,15 +35,15 @@ public func flip<A, B, E>(valueTransformer: ValueTransformer<A, B, E>) -> ValueT
 // MARK: - Compose
 
 public func compose<A, B, C, E>(left: ValueTransformer<A, B, E>, right: ValueTransformer<B, C, E>) -> ValueTransformer<A, C, E> {
-    let transformValue: A -> Result<C, E> = { a in
+    let transformClosure: A -> Result<C, E> = { a in
         return left.transformedValue(a).flatMap { b in right.transformedValue(b) }
     }
 
-    let reverseTransformValue: C -> Result<A, E> = { c in
+    let reverseTransformClosure: C -> Result<A, E> = { c in
         return right.reverseTransformedValue(c).flatMap { b in left.reverseTransformedValue(b) }
     }
 
-    return ValueTransformer(transformClosure: transformValue, reverseTransformClosure: reverseTransformValue)
+    return ValueTransformer(transformClosure: transformClosure, reverseTransformClosure: reverseTransformClosure)
 }
 
 infix operator >>> {
@@ -67,7 +67,7 @@ public func <<< <A, B, C, E>(lhs: ValueTransformer<B, C, E>, rhs: ValueTransform
 // MARK: - Lift
 
 public func lift<A, B: Equatable, E>(valueTransformer: ValueTransformer<A, B, E>, defaultTransformedValue: @autoclosure () -> B) -> ValueTransformer<A?, B, E> {
-    let transformValue: A? -> Result<B, E> = { value in
+    let transformClosure: A? -> Result<B, E> = { value in
         if let value = value {
             return valueTransformer.transformedValue(value)
         } else {
@@ -75,7 +75,7 @@ public func lift<A, B: Equatable, E>(valueTransformer: ValueTransformer<A, B, E>
         }
     }
 
-    let reverseTransformValue: B -> Result<A?, E> = { value in
+    let reverseTransformClosure: B -> Result<A?, E> = { value in
         if value == defaultTransformedValue() {
             return success(nil)
         } else {
@@ -83,11 +83,11 @@ public func lift<A, B: Equatable, E>(valueTransformer: ValueTransformer<A, B, E>
         }
     }
 
-    return ValueTransformer(transformClosure: transformValue, reverseTransformClosure: reverseTransformValue)
+    return ValueTransformer(transformClosure: transformClosure, reverseTransformClosure: reverseTransformClosure)
 }
 
 public func lift<A, B, E>(valueTransformer: ValueTransformer<A, B, E>) -> ValueTransformer<[A], [B], E> {
-    let transformValue: [A] -> Result<[B], E> = { values in
+    let transformClosure: [A] -> Result<[B], E> = { values in
         var result = [B]()
         for element in values {
             switch valueTransformer.transformedValue(element) {
@@ -101,7 +101,7 @@ public func lift<A, B, E>(valueTransformer: ValueTransformer<A, B, E>) -> ValueT
         return success(result)
     }
 
-    let reverseTransformValue: [B] -> Result<[A], E> = { values in
+    let reverseTransformClosure: [B] -> Result<[A], E> = { values in
         var result = [A]()
         for element in values {
             switch valueTransformer.reverseTransformedValue(element) {
@@ -115,5 +115,5 @@ public func lift<A, B, E>(valueTransformer: ValueTransformer<A, B, E>) -> ValueT
         return success(result)
     }
 
-    return ValueTransformer(transformClosure: transformValue, reverseTransformClosure: reverseTransformValue)
+    return ValueTransformer(transformClosure: transformClosure, reverseTransformClosure: reverseTransformClosure)
 }
