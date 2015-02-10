@@ -67,8 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC20783B1A868B00005A9CF2 /* Nimble.framework in Frameworks */,
 				DC20783C1A868B00005A9CF2 /* Quick.framework in Frameworks */,
+				DC20783B1A868B00005A9CF2 /* Nimble.framework in Frameworks */,
 				DC3927E61A85369C00982AC1 /* LlamaKit.framework in Frameworks */,
 				DC492A181A83BB59007B52D6 /* Pistachio.framework in Frameworks */,
 			);
@@ -88,8 +88,8 @@
 		DC492A021A83BB59007B52D6 = {
 			isa = PBXGroup;
 			children = (
-				DC2078391A868B00005A9CF2 /* Nimble.framework */,
 				DC20783A1A868B00005A9CF2 /* Quick.framework */,
+				DC2078391A868B00005A9CF2 /* Nimble.framework */,
 				DC3927E31A85365C00982AC1 /* LlamaKit.framework */,
 				DC492A0E1A83BB59007B52D6 /* Pistachio */,
 				DC492A1B1A83BB59007B52D6 /* PistachioTests */,
