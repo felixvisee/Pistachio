@@ -87,6 +87,34 @@ class ValueTransformerSpec: QuickSpec {
         }
 
         describe("Lifted value transformers") {
+            context("for dictionaries") {
+                let valueTransformer: ValueTransformer<String, Int, NSError> = lift([ "one": 1, "two": 2 ], 0, "null")
+
+                it("should transform a value") {
+                    let result = valueTransformer.transformedValue("one")
+
+                    expect(result.value).to(equal(1))
+                }
+
+                it("should return the default transformed value if the input is not mapped") {
+                    let result = valueTransformer.transformedValue("three")
+
+                    expect(result.value).to(equal(0))
+                }
+
+                it("should reverse transform a value") {
+                    let result = valueTransformer.reverseTransformedValue(2)
+
+                    expect(result.value).to(equal("two"))
+                }
+
+                it("should return the default reverse transformed value if the input is not reverse mapped") {
+                    let result = valueTransformer.reverseTransformedValue(3)
+
+                    expect(result.value).to(equal("null"))
+                }
+            }
+
             context("for optionals") {
                 let valueTransformer = lift(ValueTransformers.string, "default")
 
