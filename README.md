@@ -1,8 +1,8 @@
 # Pistachio
 
-Pistachio is a generic functional model framework for Swift. Given the right value transformers, it can handle encoding to and decoding from any recursive data structure, like JSON, YAML or XML.
+Pistachio is a generic model framework for Swift. Given the right value transformers, it can handle encoding to and decoding from any recursive data structure, like JSON, YAML or XML.
 
-~~If you are already familiar with [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON), take a look at [SwiftyPistachio](https://github.com/felixjendrusch/SwiftyPistachio).~~
+If you are already familiar with [Argo](https://github.com/thoughtbot/Argo), take a look at [Pistachiargo](https://github.com/felixjendrusch/Pistachiargo).
 
 ## Installation
 
@@ -34,7 +34,9 @@ struct Person {
   var name: String
   var origin: Origin
 }
+```
 
+```swift
 struct Origin {
   var city: String
 }
@@ -161,6 +163,8 @@ let adapter: DictionaryAdapter<Model, Data, Error> = fix { adapter in
 Adapters handle encoding to and decoding from data:
 
 ```swift
+let adapter = Adapters.person
+
 var person = Person(name: "Seb", origin: Origin(city: "Berlin"))
 var data: Result<AnyObject, NSError> = adapter.encode(person) // == [ "name": "Seb", "origin": [ "city": "Berlin" ] ]
 adapter.decode(Person(name: "", origin: Origin(city: "")), from: data.value!) // == .Success(Box(person))
