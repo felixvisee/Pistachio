@@ -30,19 +30,36 @@ Finally, on your application target's "General" settings tab, in the "Linked Fra
 Pistachio is all about [lenses](http://chris.eidhof.nl/posts/lenses-in-swift.html), which provide a view on your model. Let's define a simple model:
 
 ```swift
-struct Person {
-  var name: String
-  var origin: Origin
+struct Origin {
+  var city: String
+
+  init(city: String = "") {
+    self.city = city
+  }
 }
 ```
 
 ```swift
-struct Origin {
-  var city: String
+struct Person {
+  var name: String
+  var origin: Origin
+
+  init(name: String = "", origin: Origin = Origin()) {
+    self.name = name
+    self.origin = origin
+  }
 }
 ```
 
 Lenses are basically just a combination of a getter and a setter:
+
+```swift
+struct OriginLenses {
+  static let city = Lens<Origin, String>(get: { $0.city }, set: { (inout origin: Origin, city) in
+    origin.city = city
+  })
+}
+```
 
 ```swift
 struct PersonLenses {
@@ -52,14 +69,6 @@ struct PersonLenses {
 
   static let origin = Lens<Person, Origin>(get: { $0.origin }, set: { (inout person: Person, origin) in
     person.origin = origin
-  })
-}
-```
-
-```swift
-struct OriginLenses {
-  static let city = Lens<Origin, String>(get: { $0.city }, set: { (inout origin: Origin, city) in
-    origin.city = city
   })
 }
 ```
@@ -128,7 +137,7 @@ dictionaryLifted.reverseTransformedValue(0) // == "Unknown"
 let optionalLifted: ValueTransformer<String?, String> = lift(UppercaseValueTransformer, "")
 optionalLifted.transformedValue("Felix") // == "FELIX"
 optionalLifted.transformedValue(nil) // == ""
-optionalLifted.reverseTransformedValue("FELIX") // == "Felix"
+optionalLifted.reverseTransformedValue("FELIX") // == "felix"
 optionalLifted.reverseTransformedValue("") // == nil
 ```
 
@@ -142,12 +151,12 @@ With lenses and value transformers, you can create adapters for your models:
 ```swift
 struct Adapters {
   static let origin = DictionaryAdapter<Origin, AnyObject, NSError>(specification: [
-    "city": transform(OriginLenses.city, StringToAnyObjectValueTransformers)
+    "city_name": transform(OriginLenses.city, StringToAnyObjectValueTransformers)
   ], dictionaryTansformer: DictionaryToAnyObjectValueTransformers)
 
   static let person = DictionaryAdapter<Person, AnyObject, NSError>(specification: [
     "name": transform(PersonLenses.name, StringToAnyObjectValueTransformers),
-    "city": transform(PersonLenses.origin, lift(origin, Origin(city: "")))
+    "origin": transform(PersonLenses.origin, lift(origin, Origin()))
   ], dictionaryTansformer: DictionaryToAnyObjectValueTransformers)
 }
 ```
@@ -166,8 +175,11 @@ Adapters handle encoding to and decoding from data:
 let adapter = Adapters.person
 
 var person = Person(name: "Seb", origin: Origin(city: "Berlin"))
-var data: Result<AnyObject, NSError> = adapter.encode(person) // == [ "name": "Seb", "origin": [ "city": "Berlin" ] ]
-adapter.decode(Person(name: "", origin: Origin(city: "")), from: data.value!) // == .Success(Box(person))
+var data: Result<AnyObject, NSError> = adapter.encode(person)
+// == [ "name": "Seb", "origin": [ "city_name": "Berlin" ] ]
+
+adapter.decode(Person(), from: data.value!)
+// == .Success(Box(person))
 ```
 
 The return value of both `encode` and `decode` is a `Result` (by [LlamaKit](https://github.com/LlamaKit/LlamaKit)), which either holds the encoded/decoded value or an error. This enables you to gracefully handle coding errors.
