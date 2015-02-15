@@ -55,7 +55,7 @@ Lenses are basically just a combination of a getter and a setter:
 
 ```swift
 struct OriginLenses {
-  static let city = Lens<Origin, String>(get: { $0.city }, set: { (inout origin: Origin, city) in
+  static let city = Lens(get: { $0.city }, set: { (inout origin: Origin, city) in
     origin.city = city
   })
 }
@@ -63,11 +63,11 @@ struct OriginLenses {
 
 ```swift
 struct PersonLenses {
-  static let name = Lens<Person, String>(get: { $0.name }, set: { (inout person: Person, name) in
+  static let name = Lens(get: { $0.name }, set: { (inout person: Person, name) in
     person.name = name
   })
 
-  static let origin = Lens<Person, Origin>(get: { $0.origin }, set: { (inout person: Person, origin) in
+  static let origin = Lens(get: { $0.origin }, set: { (inout person: Person, origin) in
     person.origin = origin
   })
 }
@@ -84,7 +84,7 @@ get(PersonLenses.name, person) // == "Robb"
 And you can compose, lift, transform, [...](https://github.com/felixjendrusch/Pistachio/blob/master/Pistachio/Lens.swift) them:
 
 ```swift
-let composed: Lens<Person, String> = PersonLenses.origin >>> OriginLenses.city
+let composed = PersonLenses.origin >>> OriginLenses.city
 person = set(composed, person, "New York")
 get(composed, person) // == "New York"
 ```
