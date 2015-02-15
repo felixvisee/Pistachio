@@ -36,17 +36,17 @@ func == (lhs: Outer, rhs: Outer) -> Bool {
 }
 
 struct OuterLenses {
-    static let count = Lens<Outer, Int>(get: { $0.count }, set: { (inout outer: Outer, count) in
+    static let count = Lens(get: { $0.count }, set: { (inout outer: Outer, count) in
         outer.count = count
     })
 
-    static let inner = Lens<Outer, Inner>(get: { $0.inner }, set: { (inout outer: Outer, inner) in
+    static let inner = Lens(get: { $0.inner }, set: { (inout outer: Outer, inner) in
         outer.inner = inner
     })
 }
 
 struct InnerLenses {
-    static let count = Lens<Inner, Int>(get: { $0.count }, set: { (inout inner: Inner, count) in
+    static let count = Lens(get: { $0.count }, set: { (inout inner: Inner, count) in
         inner.count = count
     })
 }
