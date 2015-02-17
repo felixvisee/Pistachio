@@ -23,7 +23,6 @@ $ brew install carthage
 2. Run `carthage update` to fetch and build Pistachio and its dependencies.
 
 3. On your application target's "General" settings tab, in the "Linked Frameworks and Libraries" section, add the following frameworks from the [Carthage/Build](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#carthagebuild) folder on disk:
-  - `LlamaKit.framework`
   - `Pistachio.framework`
 
 4. On your application target's "Build Phases" settings tab, click the "+" icon and choose "New Run Script Phase". Create a Run Script with the following contents:
