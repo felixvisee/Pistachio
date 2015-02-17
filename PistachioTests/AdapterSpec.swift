@@ -56,7 +56,7 @@ struct Node {
 }
 
 struct NodeLenses {
-    static let children = Lens<Node, [Node]>(get: { $0.children }, set: { (inout node: Node, children) in
+    static let children = Lens(get: { $0.children }, set: { (inout node: Node, children) in
         node.children = children
     })
 }
