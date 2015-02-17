@@ -1,6 +1,6 @@
 # Pistachio
 
-Pistachio is a generic model framework for Swift. Given the right value transformers, it can handle encoding to and decoding from any recursive data structure, like JSON, YAML or XML.
+Pistachio is a generic model framework for Swift. By leveraging [lenses](http://chris.eidhof.nl/posts/lenses-in-swift.html) and value transformers, it allows you to create type safe adapters for any recursive data structure, be it JSON, YAML or XML.
 
 If you are already familiar with [Argo](https://github.com/thoughtbot/Argo), take a look at [Pistachiargo](https://github.com/felixjendrusch/Pistachiargo).
 
@@ -15,19 +15,31 @@ $ brew update
 $ brew install carthage
 ```
 
-Next, add Pistachio to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
+1. Add Pistachio to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
+  ```
+  github "felixjendrusch/Pistachio" ~> 0.1
+  ```
 
-```
-github "felixjendrusch/Pistachio"
-```
+2. Run `carthage update` to fetch and build Pistachio and its dependencies.
 
-Afterwards, run `carthage update` to actually fetch Pistachio.
+3. On your application target's "General" settings tab, in the "Linked Frameworks and Libraries" section, add the following frameworks from the [Carthage/Build](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#carthagebuild) folder on disk:
+  - `LlamaKit.framework`
+  - `Pistachio.framework`
 
-Finally, on your application target's "General" settings tab, in the "Linked Frameworks and Libraries" section, add `Pistachio.framework` from the [Carthage/Build](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#carthagebuild) folder on disk.
+4. On your application target's "Build Phases" settings tab, click the "+" icon and choose "New Run Script Phase". Create a Run Script with the following contents:
+  ```
+  /usr/local/bin/carthage copy-frameworks
+  ```
+  and add the following paths to the frameworks under "Input Files":
+  ```
+  $(SRCROOT)/Carthage/Build/iOS/LlamaKit.framework
+  $(SRCROOT)/Carthage/Build/iOS/Pistachio.framework
+  ```
+  This script works around an [App Store submission bug](http://www.openradar.me/radar?id=6409498411401216) triggered by universal binaries.
 
 ## Usage
 
-Pistachio is all about [lenses](http://chris.eidhof.nl/posts/lenses-in-swift.html), which provide a view on your model. Let's define a simple model:
+Let's start with defining a simple model:
 
 ```swift
 struct Origin {
@@ -51,7 +63,7 @@ struct Person {
 }
 ```
 
-Lenses are basically just a combination of a getter and a setter:
+A lens is basically just a combination of a getter and a setter, providing a view on your model:
 
 ```swift
 struct OriginLenses {
@@ -108,7 +120,7 @@ get(resultLifted, result) // == .Success(Box([ "London" ]))
 ```swift
 let valueTransformer: ValueTransformer<String, Int> = SocialSecurityNumberValueTransformer
 
-let transformed: Lens<Person, Int> = transform(PersonLenses.name, valueTransformer)
+let transformed = transform(PersonLenses.name, valueTransformer)
 person = set(transformed, person, 1234567890)
 get(PersonLenses.name, person) // == "Felix"
 ```
@@ -116,17 +128,17 @@ get(PersonLenses.name, person) // == "Felix"
 Value transformers can be flipped, composed and lifted:
 
 ```swift
-let flipped: ValueTransformer<Int, String> = flip(valueTransformer)
+let flipped = flip(valueTransformer)
 flipped.transformedValue(1234567890) // == "Felix"
 ```
 
 ```swift
-let composed: ValueTransformer<String, String> = flipped >>> UppercaseValueTransformer
+let composed = flipped >>> UppercaseValueTransformer
 flipped.transformedValue(1234567890) // == "FELIX"
 ```
 
 ```swift
-let dictionaryLifted: ValueTransformer<String, Int> = lift([ "Felix": 1234567890 ], 0, "Unknown")
+let dictionaryLifted = lift([ "Felix": 1234567890 ], 0, "Unknown")
 dictionaryLifted.transformedValue("Felix") // == 1234567890
 dictionaryLifted.transformedValue("Hans") // == 0
 dictionaryLifted.reverseTransformedValue(1234567890) // == "Felix"
@@ -134,7 +146,7 @@ dictionaryLifted.reverseTransformedValue(0) // == "Unknown"
 ```
 
 ```swift
-let optionalLifted: ValueTransformer<String?, String> = lift(UppercaseValueTransformer, "")
+let optionalLifted = lift(UppercaseValueTransformer, "")
 optionalLifted.transformedValue("Felix") // == "FELIX"
 optionalLifted.transformedValue(nil) // == ""
 optionalLifted.reverseTransformedValue("FELIX") // == "felix"
@@ -142,7 +154,7 @@ optionalLifted.reverseTransformedValue("") // == nil
 ```
 
 ```swift
-let arrayLifted: ValueTransformer<[String], [String]> = lift(UppercaseValueTransformer)
+let arrayLifted = lift(UppercaseValueTransformer)
 arrayLifted.transformedValue([ "Felix", "Robb" ]) // == [ "FELIX", "ROBB" ]
 ```
 
@@ -150,18 +162,20 @@ With lenses and value transformers, you can create adapters for your models:
 
 ```swift
 struct Adapters {
-  static let origin = DictionaryAdapter<Origin, AnyObject, NSError>(specification: [
+  static let origin = DictionaryAdapter(specification: [
     "city_name": transform(OriginLenses.city, StringToAnyObjectValueTransformers)
   ], dictionaryTansformer: DictionaryToAnyObjectValueTransformers)
 
-  static let person = DictionaryAdapter<Person, AnyObject, NSError>(specification: [
+  static let person = DictionaryAdapter(specification: [
     "name": transform(PersonLenses.name, StringToAnyObjectValueTransformers),
     "origin": transform(PersonLenses.origin, lift(origin, Origin()))
   ], dictionaryTansformer: DictionaryToAnyObjectValueTransformers)
 }
 ```
 
-Uh, what was that? Right, the `origin` adapter was lifted to a value transformer. Use `fix` to create adapters for recursive models:
+Uh, what was that? Right, the `origin` adapter was lifted into a value transformer.
+
+Use `fix` to create adapters for recursive models:
 
 ```swift
 let adapter: DictionaryAdapter<Model, Data, Error> = fix { adapter in
@@ -175,14 +189,18 @@ Adapters handle encoding to and decoding from data:
 let adapter = Adapters.person
 
 var person = Person(name: "Seb", origin: Origin(city: "Berlin"))
-var data: Result<AnyObject, NSError> = adapter.encode(person)
-// == [ "name": "Seb", "origin": [ "city_name": "Berlin" ] ]
+var data = adapter.encode(person)
+// == .Success(Box([ "name": "Seb", "origin": [ "city_name": "Berlin" ] ]))
 
 adapter.decode(Person(), from: data.value!)
 // == .Success(Box(person))
 ```
 
-The return value of both `encode` and `decode` is a `Result` (by [LlamaKit](https://github.com/LlamaKit/LlamaKit)), which either holds the encoded/decoded value or an error. This enables you to gracefully handle coding errors.
+Both `encode` and `decode` return a [`LlamaKit.Result`](https://github.com/LlamaKit/LlamaKit/blob/master/LlamaKit/Result.swift), which either holds the encoded/decoded value or an error. This enables you to gracefully handle coding errors.
+
+## Posts
+
+- [Working with immutable models in Swift](https://github.com/felixjendrusch/blog/blob/master/_posts/2015-02-14-working-with-immutable-models-in-swift.md) (February 14, 2015)
 
 ## About
 
