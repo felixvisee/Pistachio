@@ -66,7 +66,7 @@ public func <<< <A, B, C, E>(lhs: ValueTransformer<B, C, E>, rhs: ValueTransform
 
 // MARK: - Lift
 
-public func lift<A: Hashable, B: Hashable, E>(dictionary: [A: B], defaultTransformedValue: @autoclosure () -> B, defaultReverseTransformedValue: @autoclosure () -> A) -> ValueTransformer<A, B, E> {
+public func lift<A: Hashable, B: Hashable, E>(dictionary: [A: B], @autoclosure(escaping) defaultTransformedValue: () -> B, @autoclosure(escaping) defaultReverseTransformedValue: () -> A) -> ValueTransformer<A, B, E> {
     let transformClosure: A -> Result<B, E> = { value in
         if let transformedValue = dictionary[value] {
             return success(transformedValue)
@@ -91,7 +91,7 @@ public func lift<A: Hashable, B: Hashable, E>(dictionary: [A: B], defaultTransfo
     return ValueTransformer(transformClosure: transformClosure, reverseTransformClosure: reverseTransformClosure)
 }
 
-public func lift<A, B: Equatable, E>(valueTransformer: ValueTransformer<A, B, E>, defaultTransformedValue: @autoclosure () -> B) -> ValueTransformer<A?, B, E> {
+public func lift<A, B: Equatable, E>(valueTransformer: ValueTransformer<A, B, E>, @autoclosure(escaping) defaultTransformedValue: () -> B) -> ValueTransformer<A?, B, E> {
     let transformClosure: A? -> Result<B, E> = { value in
         if let value = value {
             return valueTransformer.transformedValue(value)
