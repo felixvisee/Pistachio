@@ -20,7 +20,7 @@ public protocol Adapter {
 public struct LazyAdapter<Model, Data, Error, T: Adapter where T.Model == Model, T.Data == Data, T.Error == Error>: Adapter {
     private let adapter: () -> T
 
-    public init(adapter: @autoclosure () -> T) {
+    public init(@autoclosure(escaping) adapter: () -> T) {
         self.adapter = adapter
     }
 
@@ -79,7 +79,7 @@ public func fix<Model, Data, Error, T: Adapter where T.Model == Model, T.Data ==
 
 // MARK: - Lift
 
-public func lift<Model, Data, Error, T: Adapter where T.Model == Model, T.Data == Data, T.Error == Error>(adapter: T, model: @autoclosure () -> Model) -> ValueTransformer<Model, Data, Error> {
+public func lift<Model, Data, Error, T: Adapter where T.Model == Model, T.Data == Data, T.Error == Error>(adapter: T, @autoclosure(escaping) model: () -> Model) -> ValueTransformer<Model, Data, Error> {
     let transformClosure: Model -> Result<Data, Error> = { model in
         return adapter.encode(model)
     }
