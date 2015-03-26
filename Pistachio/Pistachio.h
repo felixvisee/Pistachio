@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Felix Jendrusch. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for Pistachio.
 FOUNDATION_EXPORT double PistachioVersionNumber;
