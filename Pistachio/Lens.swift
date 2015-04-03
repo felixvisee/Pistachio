@@ -1,10 +1,4 @@
-//
-//  Lens.swift
-//  Pistachio
-//
-//  Created by Robert Böhnke on 1/17/15.
 //  Copyright (c) 2015 Robert Böhnke. All rights reserved.
-//
 
 import LlamaKit
 
