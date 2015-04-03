@@ -1,37 +1,38 @@
 //  Copyright (c) 2015 Felix Jendrusch. All rights reserved.
 
 import LlamaKit
+import ValueTransformer
 
-public protocol Adapter {
-    typealias Model
-    typealias Data
-    typealias Error
+public protocol AdapterType {
+    typealias ModelType
+    typealias DataType
+    typealias ErrorType
 
-    func encode(model: Model) -> Result<Data, Error>
-    func decode(model: Model, from data: Data) -> Result<Model, Error>
+    func encode(model: ModelType) -> Result<DataType, ErrorType>
+    func decode(model: ModelType, from data: DataType) -> Result<ModelType, ErrorType>
 }
 
-public struct LazyAdapter<Model, Data, Error, T: Adapter where T.Model == Model, T.Data == Data, T.Error == Error>: Adapter {
-    private let adapter: () -> T
+public struct LazyAdapter<A: AdapterType>: AdapterType {
+    private let adapter: () -> A
 
-    public init(adapter: @autoclosure () -> T) {
+    public init(adapter: @autoclosure () -> A) {
         self.adapter = adapter
     }
 
-    public func encode(model: Model) -> Result<Data, Error> {
+    public func encode(model: A.ModelType) -> Result<A.DataType, A.ErrorType> {
         return adapter().encode(model)
     }
 
-    public func decode(model: Model, from data: Data) -> Result<Model, Error> {
+    public func decode(model: A.ModelType, from data: A.DataType) -> Result<A.ModelType, A.ErrorType> {
         return adapter().decode(model, from: data)
     }
 }
 
-public struct DictionaryAdapter<Model, Data, Error>: Adapter {
+public struct DictionaryAdapter<Model, Data, Error>: AdapterType {
     private let specification: [String: Lens<Result<Model, Error>, Result<Data, Error>>]
-    private let dictionaryTansformer: ValueTransformer<[String: Data], Data, Error>
+    private let dictionaryTansformer: ReversibleValueTransformer<[String: Data], Data, Error>
 
-    public init(specification: [String: Lens<Result<Model, Error>, Result<Data, Error>>], dictionaryTansformer: ValueTransformer<[String: Data], Data, Error>) {
+    public init(specification: [String: Lens<Result<Model, Error>, Result<Data, Error>>], dictionaryTansformer: ReversibleValueTransformer<[String: Data], Data, Error>) {
         self.specification = specification
         self.dictionaryTansformer = dictionaryTansformer
     }
@@ -47,11 +48,11 @@ public struct DictionaryAdapter<Model, Data, Error>: Adapter {
             }
         }
 
-        return dictionaryTansformer.transformedValue(dictionary)
+        return dictionaryTansformer.transform(dictionary)
     }
 
     public func decode(model: Model, from data: Data) -> Result<Model, Error> {
-        return dictionaryTansformer.reverseTransformedValue(data).flatMap { dictionary in
+        return dictionaryTansformer.reverseTransform(data).flatMap { dictionary in
             var result: Result<Model, Error> = success(model)
             for (key, lens) in self.specification {
                 if let value = dictionary[key] {
@@ -67,20 +68,20 @@ public struct DictionaryAdapter<Model, Data, Error>: Adapter {
 
 // MARK: - Fix
 
-public func fix<Model, Data, Error, T: Adapter where T.Model == Model, T.Data == Data, T.Error == Error>(f: LazyAdapter<Model, Data, Error, T> -> T) -> T {
+public func fix<A: AdapterType>(f: LazyAdapter<A> -> A) -> A {
     return f(LazyAdapter(adapter: fix(f)))
 }
 
 // MARK: - Lift
 
-public func lift<Model, Data, Error, T: Adapter where T.Model == Model, T.Data == Data, T.Error == Error>(adapter: T, model: @autoclosure () -> Model) -> ValueTransformer<Model, Data, Error> {
-    let transformClosure: Model -> Result<Data, Error> = { model in
+public func lift<A: AdapterType>(adapter: A, model: @autoclosure () -> A.ModelType) -> ReversibleValueTransformer<A.ModelType, A.DataType, A.ErrorType> {
+    let transformClosure: A.ModelType -> Result<A.DataType, A.ErrorType> = { model in
         return adapter.encode(model)
     }
 
-    let reverseTransformClosure: Data -> Result<Model, Error> = { data in
+    let reverseTransformClosure: A.DataType -> Result<A.ModelType, A.ErrorType> = { data in
         return adapter.decode(model(), from: data)
     }
 
-    return ValueTransformer(transformClosure: transformClosure, reverseTransformClosure: reverseTransformClosure)
+    return ReversibleValueTransformer(transformClosure: transformClosure, reverseTransformClosure: reverseTransformClosure)
 }

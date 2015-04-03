@@ -14,13 +14,11 @@
 		DC20783C1A868B00005A9CF2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC20783A1A868B00005A9CF2 /* Quick.framework */; };
 		DC2078401A868C25005A9CF2 /* LensSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20783F1A868C25005A9CF2 /* LensSpec.swift */; };
 		DC2078441A87C08A005A9CF2 /* UtilsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2078431A87C08A005A9CF2 /* UtilsSpec.swift */; };
-		DC2078461A87CCC5005A9CF2 /* ValueTransformerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2078451A87CCC5005A9CF2 /* ValueTransformerSpec.swift */; };
 		DC3927E41A85365C00982AC1 /* LlamaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3927E31A85365C00982AC1 /* LlamaKit.framework */; };
 		DC492A121A83BB59007B52D6 /* Pistachio.h in Headers */ = {isa = PBXBuildFile; fileRef = DC492A111A83BB59007B52D6 /* Pistachio.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC492A181A83BB59007B52D6 /* Pistachio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC492A0C1A83BB59007B52D6 /* Pistachio.framework */; };
 		DC492A291A83BB73007B52D6 /* Lens.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC492A281A83BB73007B52D6 /* Lens.swift */; };
 		DC492A2E1A83BD33007B52D6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC492A2D1A83BD33007B52D6 /* Utils.swift */; };
-		DC492A361A84096D007B52D6 /* ValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC492A351A84096D007B52D6 /* ValueTransformer.swift */; };
 		DCA767831ACEAB73007E4C12 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC20783A1A868B00005A9CF2 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCA767841ACEAB73007E4C12 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC2078391A868B00005A9CF2 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCA767851ACEAB73007E4C12 /* LlamaKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC3927E31A85365C00982AC1 /* LlamaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -34,13 +32,17 @@
 		DCA767AF1ACEADA4007E4C12 /* AdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */; };
 		DCA767B01ACEADA4007E4C12 /* LensSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20783F1A868C25005A9CF2 /* LensSpec.swift */; };
 		DCA767B11ACEADA4007E4C12 /* UtilsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2078431A87C08A005A9CF2 /* UtilsSpec.swift */; };
-		DCA767B21ACEADA4007E4C12 /* ValueTransformerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2078451A87CCC5005A9CF2 /* ValueTransformerSpec.swift */; };
 		DCA767B31ACEADAB007E4C12 /* NSNumberValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC071B9E1A8810BE00DE471C /* NSNumberValueTransformers.swift */; };
 		DCA767B41ACEADB1007E4C12 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* Adapter.swift */; };
 		DCA767B51ACEADB1007E4C12 /* Lens.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC492A281A83BB73007B52D6 /* Lens.swift */; };
 		DCA767B61ACEADB1007E4C12 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC492A2D1A83BD33007B52D6 /* Utils.swift */; };
-		DCA767B71ACEADB1007E4C12 /* ValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC492A351A84096D007B52D6 /* ValueTransformer.swift */; };
 		DCA767B81ACEADB4007E4C12 /* Pistachio.h in Headers */ = {isa = PBXBuildFile; fileRef = DC492A111A83BB59007B52D6 /* Pistachio.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCA767BA1ACEAF17007E4C12 /* ValueTransformer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */; };
+		DCA767BC1ACEAF35007E4C12 /* ValueTransformer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */; };
+		DCA767BD1ACEAF52007E4C12 /* ValueTransformer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */; };
+		DCA767BE1ACEAF5A007E4C12 /* ValueTransformer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DCA767BF1ACEAF6A007E4C12 /* ValueTransformer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */; };
+		DCA767C01ACEAF70007E4C12 /* ValueTransformer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				DCA767BE1ACEAF5A007E4C12 /* ValueTransformer.framework in CopyFiles */,
 				DCA767831ACEAB73007E4C12 /* Quick.framework in CopyFiles */,
 				DCA767841ACEAB73007E4C12 /* Nimble.framework in CopyFiles */,
 				DCA767851ACEAB73007E4C12 /* LlamaKit.framework in CopyFiles */,
@@ -79,6 +82,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				DCA767C01ACEAF70007E4C12 /* ValueTransformer.framework in CopyFiles */,
 				DCA767AB1ACEAD4B007E4C12 /* Nimble.framework in CopyFiles */,
 				DCA767AC1ACEAD4B007E4C12 /* Quick.framework in CopyFiles */,
 				DCA767AD1ACEAD4B007E4C12 /* LlamaKit.framework in CopyFiles */,
@@ -95,7 +99,6 @@
 		DC20783A1A868B00005A9CF2 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		DC20783F1A868C25005A9CF2 /* LensSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensSpec.swift; sourceTree = "<group>"; };
 		DC2078431A87C08A005A9CF2 /* UtilsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilsSpec.swift; sourceTree = "<group>"; };
-		DC2078451A87CCC5005A9CF2 /* ValueTransformerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueTransformerSpec.swift; sourceTree = "<group>"; };
 		DC3927E31A85365C00982AC1 /* LlamaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LlamaKit.framework; path = Carthage/Build/iOS/LlamaKit.framework; sourceTree = "<group>"; };
 		DC492A0C1A83BB59007B52D6 /* Pistachio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pistachio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC492A101A83BB59007B52D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,12 +107,13 @@
 		DC492A1D1A83BB59007B52D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC492A281A83BB73007B52D6 /* Lens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lens.swift; sourceTree = "<group>"; };
 		DC492A2D1A83BD33007B52D6 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		DC492A351A84096D007B52D6 /* ValueTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueTransformer.swift; sourceTree = "<group>"; };
 		DCA7678B1ACEAC7C007E4C12 /* Pistachio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pistachio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA767951ACEAC7D007E4C12 /* PistachioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PistachioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA767A41ACEACF9007E4C12 /* LlamaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LlamaKit.framework; path = Carthage/Build/Mac/LlamaKit.framework; sourceTree = "<group>"; };
 		DCA767A61ACEAD38007E4C12 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		DCA767A71ACEAD38007E4C12 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
+		DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ValueTransformer.framework; path = Carthage/Build/iOS/ValueTransformer.framework; sourceTree = "<group>"; };
+		DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ValueTransformer.framework; path = Carthage/Build/Mac/ValueTransformer.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC3927E41A85365C00982AC1 /* LlamaKit.framework in Frameworks */,
+				DCA767BA1ACEAF17007E4C12 /* ValueTransformer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +132,7 @@
 			files = (
 				DC20783C1A868B00005A9CF2 /* Quick.framework in Frameworks */,
 				DC20783B1A868B00005A9CF2 /* Nimble.framework in Frameworks */,
+				DCA767BD1ACEAF52007E4C12 /* ValueTransformer.framework in Frameworks */,
 				DC492A181A83BB59007B52D6 /* Pistachio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCA767A51ACEACF9007E4C12 /* LlamaKit.framework in Frameworks */,
+				DCA767BC1ACEAF35007E4C12 /* ValueTransformer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +152,7 @@
 			files = (
 				DCA767A91ACEAD38007E4C12 /* Quick.framework in Frameworks */,
 				DCA767A81ACEAD38007E4C12 /* Nimble.framework in Frameworks */,
+				DCA767BF1ACEAF6A007E4C12 /* ValueTransformer.framework in Frameworks */,
 				DCA767961ACEAC7D007E4C12 /* Pistachio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,7 +196,6 @@
 				DC2077CE1A8544D7005A9CF2 /* Adapter.swift */,
 				DC492A281A83BB73007B52D6 /* Lens.swift */,
 				DC492A2D1A83BD33007B52D6 /* Utils.swift */,
-				DC492A351A84096D007B52D6 /* ValueTransformer.swift */,
 				DC071B9D1A8810AC00DE471C /* Value Transformers */,
 				DC492A0F1A83BB59007B52D6 /* Supporting Files */,
 			);
@@ -209,7 +216,6 @@
 				DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */,
 				DC20783F1A868C25005A9CF2 /* LensSpec.swift */,
 				DC2078431A87C08A005A9CF2 /* UtilsSpec.swift */,
-				DC2078451A87CCC5005A9CF2 /* ValueTransformerSpec.swift */,
 				DC492A1C1A83BB59007B52D6 /* Supporting Files */,
 			);
 			path = PistachioTests;
@@ -229,6 +235,7 @@
 				DC20783A1A868B00005A9CF2 /* Quick.framework */,
 				DC2078391A868B00005A9CF2 /* Nimble.framework */,
 				DC3927E31A85365C00982AC1 /* LlamaKit.framework */,
+				DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -239,6 +246,7 @@
 				DCA767A71ACEAD38007E4C12 /* Quick.framework */,
 				DCA767A61ACEAD38007E4C12 /* Nimble.framework */,
 				DCA767A41ACEACF9007E4C12 /* LlamaKit.framework */,
+				DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */,
 			);
 			name = Mac;
 			sourceTree = "<group>";
@@ -429,7 +437,6 @@
 			files = (
 				DC071B9F1A8810BE00DE471C /* NSNumberValueTransformers.swift in Sources */,
 				DC2077CF1A8544D7005A9CF2 /* Adapter.swift in Sources */,
-				DC492A361A84096D007B52D6 /* ValueTransformer.swift in Sources */,
 				DC492A291A83BB73007B52D6 /* Lens.swift in Sources */,
 				DC492A2E1A83BD33007B52D6 /* Utils.swift in Sources */,
 			);
@@ -440,7 +447,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC13E2411A87D3F9006DC3CA /* AdapterSpec.swift in Sources */,
-				DC2078461A87CCC5005A9CF2 /* ValueTransformerSpec.swift in Sources */,
 				DC2078441A87C08A005A9CF2 /* UtilsSpec.swift in Sources */,
 				DC2078401A868C25005A9CF2 /* LensSpec.swift in Sources */,
 			);
@@ -450,7 +456,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCA767B71ACEADB1007E4C12 /* ValueTransformer.swift in Sources */,
 				DCA767B31ACEADAB007E4C12 /* NSNumberValueTransformers.swift in Sources */,
 				DCA767B41ACEADB1007E4C12 /* Adapter.swift in Sources */,
 				DCA767B51ACEADB1007E4C12 /* Lens.swift in Sources */,
@@ -462,7 +467,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCA767B21ACEADA4007E4C12 /* ValueTransformerSpec.swift in Sources */,
 				DCA767B01ACEADA4007E4C12 /* LensSpec.swift in Sources */,
 				DCA767B11ACEADA4007E4C12 /* UtilsSpec.swift in Sources */,
 				DCA767AF1ACEADA4007E4C12 /* AdapterSpec.swift in Sources */,
