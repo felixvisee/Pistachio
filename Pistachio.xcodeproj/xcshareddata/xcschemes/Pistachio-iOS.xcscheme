@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC492A0B1A83BB59007B52D6"
                BuildableName = "Pistachio.framework"
-               BlueprintName = "Pistachio"
+               BlueprintName = "Pistachio-iOS"
                ReferencedContainer = "container:Pistachio.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -30,7 +30,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC492A161A83BB59007B52D6"
                BuildableName = "PistachioTests.xctest"
-               BlueprintName = "PistachioTests"
+               BlueprintName = "Pistachio-iOSTests"
                ReferencedContainer = "container:Pistachio.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,7 +48,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC492A161A83BB59007B52D6"
                BuildableName = "PistachioTests.xctest"
-               BlueprintName = "PistachioTests"
+               BlueprintName = "Pistachio-iOSTests"
                ReferencedContainer = "container:Pistachio.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -58,7 +58,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC492A0B1A83BB59007B52D6"
             BuildableName = "Pistachio.framework"
-            BlueprintName = "Pistachio"
+            BlueprintName = "Pistachio-iOS"
             ReferencedContainer = "container:Pistachio.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -77,7 +77,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC492A0B1A83BB59007B52D6"
             BuildableName = "Pistachio.framework"
-            BlueprintName = "Pistachio"
+            BlueprintName = "Pistachio-iOS"
             ReferencedContainer = "container:Pistachio.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -95,7 +95,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC492A0B1A83BB59007B52D6"
             BuildableName = "Pistachio.framework"
-            BlueprintName = "Pistachio"
+            BlueprintName = "Pistachio-iOS"
             ReferencedContainer = "container:Pistachio.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
