@@ -21,16 +21,16 @@ public func lift<A, B, E>(lens: Lens<A, B>) -> Lens<Result<A, E>, Result<B, E>> 
 
 // MARK: - Transform
 
-public func transform<A, B, C, V: ReversibleValueTransformerType where V.ValueType == B, V.TransformedValueType == C>(lens: Lens<A, B>, reversibleValueTransformer: V) -> Lens<Result<A, V.ErrorType>, Result<C, V.ErrorType>> {
+public func transform<A, V: ReversibleValueTransformerType>(lens: Lens<A, V.ValueType>, reversibleValueTransformer: V) -> Lens<Result<A, V.ErrorType>, Result<V.TransformedValueType, V.ErrorType>> {
     return transform(lift(lens), reversibleValueTransformer)
 }
 
-public func transform<A, B, C, V: ReversibleValueTransformerType where V.ValueType == B, V.TransformedValueType == C>(lens: Lens<Result<A, V.ErrorType>, Result<B, V.ErrorType>>, reversibleValueTransformer: V) -> Lens<Result<A, V.ErrorType>, Result<C, V.ErrorType>> {
-    let get: Result<A, V.ErrorType> -> Result<C, V.ErrorType> = { a in
+public func transform<A, V: ReversibleValueTransformerType>(lens: Lens<Result<A, V.ErrorType>, Result<V.ValueType, V.ErrorType>>, reversibleValueTransformer: V) -> Lens<Result<A, V.ErrorType>, Result<V.TransformedValueType, V.ErrorType>> {
+    let get: Result<A, V.ErrorType> -> Result<V.TransformedValueType, V.ErrorType> = { a in
         return Monocle.get(lens, a).flatMap(curry(transform)(reversibleValueTransformer))
     }
 
-    let set: (Result<A, V.ErrorType>, Result<C, V.ErrorType>) -> Result<A, V.ErrorType> = { a, c in
+    let set: (Result<A, V.ErrorType>, Result<V.TransformedValueType, V.ErrorType>) -> Result<A, V.ErrorType> = { a, c in
         return Monocle.set(lens, a, c.flatMap(curry(reverseTransform)(reversibleValueTransformer)))
     }
 
