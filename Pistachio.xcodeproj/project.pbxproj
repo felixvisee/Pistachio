@@ -53,6 +53,8 @@
 		DCA767BD1ACEAF52007E4C12 /* ValueTransformer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */; };
 		DCA767BE1ACEAF5A007E4C12 /* ValueTransformer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCA767BF1ACEAF6A007E4C12 /* ValueTransformer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */; };
+		DCCF43DD1AE29E43009E0012 /* DictionaryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43DC1AE29E43009E0012 /* DictionaryAdapter.swift */; };
+		DCCF43DE1AE29E43009E0012 /* DictionaryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43DC1AE29E43009E0012 /* DictionaryAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +140,7 @@
 		DCA767A71ACEAD38007E4C12 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ValueTransformer.framework; path = Carthage/Build/iOS/ValueTransformer.framework; sourceTree = "<group>"; };
 		DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ValueTransformer.framework; path = Carthage/Build/Mac/ValueTransformer.framework; sourceTree = "<group>"; };
+		DCCF43DC1AE29E43009E0012 /* DictionaryAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				DC2077CE1A8544D7005A9CF2 /* Adapter.swift */,
+				DCCF43DC1AE29E43009E0012 /* DictionaryAdapter.swift */,
 				DC7CEA1D1AE28D830049F077 /* LazyAdapter.swift */,
 				DC492A111A83BB59007B52D6 /* Pistachio.h */,
 				DC7CEA151AE28B2F0049F077 /* Extensions */,
@@ -483,6 +487,7 @@
 				DC7CEA1E1AE28D830049F077 /* LazyAdapter.swift in Sources */,
 				DC2077CF1A8544D7005A9CF2 /* Adapter.swift in Sources */,
 				DC7CEA191AE28B2F0049F077 /* LensExtensions.swift in Sources */,
+				DCCF43DD1AE29E43009E0012 /* DictionaryAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +507,7 @@
 				DC7CEA1F1AE28D830049F077 /* LazyAdapter.swift in Sources */,
 				DCA767B41ACEADB1007E4C12 /* Adapter.swift in Sources */,
 				DC7CEA1A1AE28B2F0049F077 /* LensExtensions.swift in Sources */,
+				DCCF43DE1AE29E43009E0012 /* DictionaryAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
