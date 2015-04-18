@@ -4,123 +4,123 @@ import Result
 import ValueTransformer
 
 public struct NSNumberValueTransformers {
-    public static func char<E>() -> ReversibleValueTransformer<NSNumber, Int8, E> {
+    public static func char<E>() -> ReversibleValueTransformer<Int8, NSNumber, E> {
         return ReversibleValueTransformer(transformClosure: { value in
-            return Result.success(value.charValue)
+            return Result.success(NSNumber(char: value))
         }, reverseTransformClosure: { transformedValue in
-            return Result.success(NSNumber(char: transformedValue))
+            return Result.success(transformedValue.charValue)
         })
     }
 
-    public static func unsignedChar<E>() -> ReversibleValueTransformer<NSNumber, UInt8, E> {
+    public static func unsignedChar<E>() -> ReversibleValueTransformer<UInt8, NSNumber, E> {
         return ReversibleValueTransformer(transformClosure: { value in
-            return Result.success(value.unsignedCharValue)
+            return Result.success(NSNumber(unsignedChar: value))
         }, reverseTransformClosure: { transformedValue in
-            return Result.success(NSNumber(unsignedChar: transformedValue))
+            return Result.success(transformedValue.unsignedCharValue)
         })
     }
 
-    public static func short<E>() -> ReversibleValueTransformer<NSNumber, Int16, E> {
+    public static func short<E>() -> ReversibleValueTransformer<Int16, NSNumber, E> {
         return ReversibleValueTransformer(transformClosure: { value in
-            return Result.success(value.shortValue)
+            return Result.success(NSNumber(short: value))
         }, reverseTransformClosure: { transformedValue in
-            return Result.success(NSNumber(short: transformedValue))
+            return Result.success(transformedValue.shortValue)
         })
     }
 
-    public static func unsignedShort<E>() -> ReversibleValueTransformer<NSNumber, UInt16, E> {
+    public static func unsignedShort<E>() -> ReversibleValueTransformer<UInt16, NSNumber, E> {
         return ReversibleValueTransformer(transformClosure: { value in
-            return Result.success(value.unsignedShortValue)
+            return Result.success(NSNumber(unsignedShort: value))
         }, reverseTransformClosure: { transformedValue in
-            return Result.success(NSNumber(unsignedShort: transformedValue))
+            return Result.success(transformedValue.unsignedShortValue)
         })
     }
 
-    public static func int<E>() -> ReversibleValueTransformer<NSNumber, Int32, E> {
+    public static func int<E>() -> ReversibleValueTransformer<Int32, NSNumber, E> {
         return ReversibleValueTransformer(transformClosure: { value in
-            return Result.success(value.intValue)
+            return Result.success(NSNumber(int: value))
         }, reverseTransformClosure: { transformedValue in
-            return Result.success(NSNumber(int: transformedValue))
+            return Result.success(transformedValue.intValue)
         })
     }
 
-    public static func unsignedInt<E>() -> ReversibleValueTransformer<NSNumber, UInt32, E> {
+    public static func unsignedInt<E>() -> ReversibleValueTransformer<UInt32, NSNumber, E> {
         return ReversibleValueTransformer(transformClosure: { value in
-            return Result.success(value.unsignedIntValue)
-        }, reverseTransformClosure: { transformedValue in
-            return Result.success(NSNumber(unsignedInt: transformedValue))
+            return Result.success(NSNumber(unsignedInt: value))
+            }, reverseTransformClosure: { transformedValue in
+                return Result.success(transformedValue.unsignedIntValue)
         })
     }
 
-    public static func long<E>() -> ReversibleValueTransformer<NSNumber, Int, E> {
+    public static func long<E>() -> ReversibleValueTransformer<Int, NSNumber, E> {
         return ReversibleValueTransformer(transformClosure: { value in
-            return Result.success(value.longValue)
-        }, reverseTransformClosure: { transformedValue in
-            return Result.success(NSNumber(long: transformedValue))
+            return Result.success(NSNumber(long: value))
+            }, reverseTransformClosure: { transformedValue in
+                return Result.success(transformedValue.longValue)
         })
     }
 
-    public static func unsignedLong<E>() -> ReversibleValueTransformer<NSNumber, UInt, E> {
+    public static func unsignedLong<E>() -> ReversibleValueTransformer<UInt, NSNumber, E> {
         return ReversibleValueTransformer(transformClosure: { value in
-            return Result.success(value.unsignedLongValue)
-        }, reverseTransformClosure: { transformedValue in
-            return Result.success(NSNumber(unsignedLong: transformedValue))
+            return Result.success(NSNumber(unsignedLong: value))
+            }, reverseTransformClosure: { transformedValue in
+                return Result.success(transformedValue.unsignedLongValue)
         })
     }
 
-    public static func longLong<E>() -> ReversibleValueTransformer<NSNumber, Int64, E> {
+    public static func longLong<E>() -> ReversibleValueTransformer<Int64, NSNumber, E> {
         return ReversibleValueTransformer(transformClosure: { value in
-            return Result.success(value.longLongValue)
-        }, reverseTransformClosure: { transformedValue in
-            return Result.success(NSNumber(longLong: transformedValue))
+            return Result.success(NSNumber(longLong: value))
+            }, reverseTransformClosure: { transformedValue in
+                return Result.success(transformedValue.longLongValue)
         })
     }
 
-    public static func unsignedLongLong<E>() -> ReversibleValueTransformer<NSNumber, UInt64, E> {
+    public static func unsignedLongLong<E>() -> ReversibleValueTransformer<UInt64, NSNumber, E> {
         return ReversibleValueTransformer(transformClosure: { value in
-            return Result.success(value.unsignedLongLongValue)
-        }, reverseTransformClosure: { transformedValue in
-            return Result.success(NSNumber(unsignedLongLong: transformedValue))
+            return Result.success(NSNumber(unsignedLongLong: value))
+            }, reverseTransformClosure: { transformedValue in
+                return Result.success(transformedValue.unsignedLongLongValue)
         })
     }
 
-    public static func float<E>() -> ReversibleValueTransformer<NSNumber, Float, E> {
+    public static func float<E>() -> ReversibleValueTransformer<Float, NSNumber, E> {
         return ReversibleValueTransformer(transformClosure: { value in
-            return Result.success(value.floatValue)
-        }, reverseTransformClosure: { transformedValue in
-            return Result.success(NSNumber(float: transformedValue))
+            return Result.success(NSNumber(float: value))
+            }, reverseTransformClosure: { transformedValue in
+                return Result.success(transformedValue.floatValue)
         })
     }
 
-    public static func double<E>() -> ReversibleValueTransformer<NSNumber, Double, E> {
+    public static func double<E>() -> ReversibleValueTransformer<Double, NSNumber, E> {
         return ReversibleValueTransformer(transformClosure: { value in
-            return Result.success(value.doubleValue)
-        }, reverseTransformClosure: { transformedValue in
-            return Result.success(NSNumber(double: transformedValue))
+            return Result.success(NSNumber(double: value))
+            }, reverseTransformClosure: { transformedValue in
+                return Result.success(transformedValue.doubleValue)
         })
     }
 
-    public static func bool<E>() -> ReversibleValueTransformer<NSNumber, Bool, E> {
+    public static func bool<E>() -> ReversibleValueTransformer<Bool, NSNumber, E> {
         return ReversibleValueTransformer(transformClosure: { value in
-            return Result.success(value.boolValue)
-        }, reverseTransformClosure: { transformedValue in
-            return Result.success(NSNumber(bool: transformedValue))
+            return Result.success(NSNumber(bool: value))
+            }, reverseTransformClosure: { transformedValue in
+                return Result.success(transformedValue.boolValue)
         })
     }
 
-    public static func integer<E>() -> ReversibleValueTransformer<NSNumber, Int, E> {
+    public static func integer<E>() -> ReversibleValueTransformer<Int, NSNumber, E> {
         return ReversibleValueTransformer(transformClosure: { value in
-            return Result.success(value.integerValue)
-        }, reverseTransformClosure: { transformedValue in
-            return Result.success(NSNumber(integer: transformedValue))
+            return Result.success(NSNumber(integer: value))
+            }, reverseTransformClosure: { transformedValue in
+                return Result.success(transformedValue.integerValue)
         })
     }
 
-    public static func unsignedInteger<E>() -> ReversibleValueTransformer<NSNumber, Int, E> {
+    public static func unsignedInteger<E>() -> ReversibleValueTransformer<Int, NSNumber, E> {
         return ReversibleValueTransformer(transformClosure: { value in
-            return Result.success(value.unsignedIntegerValue)
-        }, reverseTransformClosure: { transformedValue in
-            return Result.success(NSNumber(unsignedInteger: transformedValue))
+            return Result.success(NSNumber(unsignedInteger: value))
+            }, reverseTransformClosure: { transformedValue in
+                return Result.success(transformedValue.unsignedIntegerValue)
         })
     }
 }
