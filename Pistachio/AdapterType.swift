@@ -3,7 +3,7 @@
 import Result
 import ValueTransformer
 
-public protocol Adapter {
+public protocol AdapterType {
     typealias Model
     typealias Data
     typealias Error
@@ -14,7 +14,7 @@ public protocol Adapter {
 
 // MARK: - Lift
 
-public func lift<A: Adapter>(adapter: A, @autoclosure(escaping) model: () -> A.Model) -> ReversibleValueTransformer<A.Model, A.Data, A.Error> {
+public func lift<A: AdapterType>(adapter: A, @autoclosure(escaping) model: () -> A.Model) -> ReversibleValueTransformer<A.Model, A.Data, A.Error> {
     let transformClosure: A.Model -> Result<A.Data, A.Error> = { model in
         return adapter.encode(model)
     }

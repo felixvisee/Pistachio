@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DC13E2411A87D3F9006DC3CA /* AdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */; };
-		DC2077CF1A8544D7005A9CF2 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* Adapter.swift */; };
+		DC2077CF1A8544D7005A9CF2 /* AdapterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* AdapterType.swift */; };
 		DC20783B1A868B00005A9CF2 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2078391A868B00005A9CF2 /* Nimble.framework */; };
 		DC20783C1A868B00005A9CF2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC20783A1A868B00005A9CF2 /* Quick.framework */; };
 		DC492A121A83BB59007B52D6 /* Pistachio.h in Headers */ = {isa = PBXBuildFile; fileRef = DC492A111A83BB59007B52D6 /* Pistachio.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -46,7 +46,7 @@
 		DCA767A81ACEAD38007E4C12 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767A61ACEAD38007E4C12 /* Nimble.framework */; };
 		DCA767A91ACEAD38007E4C12 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767A71ACEAD38007E4C12 /* Quick.framework */; };
 		DCA767AF1ACEADA4007E4C12 /* AdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */; };
-		DCA767B41ACEADB1007E4C12 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* Adapter.swift */; };
+		DCA767B41ACEADB1007E4C12 /* AdapterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* AdapterType.swift */; };
 		DCA767B81ACEADB4007E4C12 /* Pistachio.h in Headers */ = {isa = PBXBuildFile; fileRef = DC492A111A83BB59007B52D6 /* Pistachio.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCA767BA1ACEAF17007E4C12 /* ValueTransformer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */; };
 		DCA767BC1ACEAF35007E4C12 /* ValueTransformer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */; };
@@ -113,7 +113,7 @@
 
 /* Begin PBXFileReference section */
 		DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterSpec.swift; sourceTree = "<group>"; };
-		DC2077CE1A8544D7005A9CF2 /* Adapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
+		DC2077CE1A8544D7005A9CF2 /* AdapterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterType.swift; sourceTree = "<group>"; };
 		DC2078391A868B00005A9CF2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DC20783A1A868B00005A9CF2 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		DC492A0C1A83BB59007B52D6 /* Pistachio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pistachio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,7 +217,7 @@
 		DC492A0E1A83BB59007B52D6 /* Pistachio */ = {
 			isa = PBXGroup;
 			children = (
-				DC2077CE1A8544D7005A9CF2 /* Adapter.swift */,
+				DC2077CE1A8544D7005A9CF2 /* AdapterType.swift */,
 				DCCF43DC1AE29E43009E0012 /* DictionaryAdapter.swift */,
 				DC7CEA1D1AE28D830049F077 /* LazyAdapter.swift */,
 				DC492A111A83BB59007B52D6 /* Pistachio.h */,
@@ -485,7 +485,7 @@
 			files = (
 				DC7CEA1B1AE28B2F0049F077 /* NSNumberValueTransformers.swift in Sources */,
 				DC7CEA1E1AE28D830049F077 /* LazyAdapter.swift in Sources */,
-				DC2077CF1A8544D7005A9CF2 /* Adapter.swift in Sources */,
+				DC2077CF1A8544D7005A9CF2 /* AdapterType.swift in Sources */,
 				DC7CEA191AE28B2F0049F077 /* LensExtensions.swift in Sources */,
 				DCCF43DD1AE29E43009E0012 /* DictionaryAdapter.swift in Sources */,
 			);
@@ -505,7 +505,7 @@
 			files = (
 				DC7CEA1C1AE28B2F0049F077 /* NSNumberValueTransformers.swift in Sources */,
 				DC7CEA1F1AE28D830049F077 /* LazyAdapter.swift in Sources */,
-				DCA767B41ACEADB1007E4C12 /* Adapter.swift in Sources */,
+				DCA767B41ACEADB1007E4C12 /* AdapterType.swift in Sources */,
 				DC7CEA1A1AE28B2F0049F077 /* LensExtensions.swift in Sources */,
 				DCCF43DE1AE29E43009E0012 /* DictionaryAdapter.swift in Sources */,
 			);

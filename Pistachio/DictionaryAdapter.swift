@@ -5,7 +5,7 @@ import Result
 import ValueTransformer
 import Monocle
 
-public struct DictionaryAdapter<Model, Data, Error>: Adapter {
+public struct DictionaryAdapter<Model, Data, Error>: AdapterType {
     private let specification: [String: Lens<Result<Model, Error>, Result<Data, Error>>]
     private let dictionaryTansformer: ReversibleValueTransformer<[String: Data], Data, Error>
 

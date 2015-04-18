@@ -2,7 +2,7 @@
 
 import Result
 
-public struct LazyAdapter<A: Adapter>: Adapter {
+public struct LazyAdapter<A: AdapterType>: AdapterType {
     private let adapter: () -> A
 
     public init(@autoclosure(escaping) adapter: () -> A) {
@@ -20,6 +20,6 @@ public struct LazyAdapter<A: Adapter>: Adapter {
 
 // MARK: - Fix
 
-public func fix<A: Adapter>(f: LazyAdapter<A> -> A) -> A {
+public func fix<A: AdapterType>(f: LazyAdapter<A> -> A) -> A {
     return f(LazyAdapter(adapter: fix(f)))
 }
