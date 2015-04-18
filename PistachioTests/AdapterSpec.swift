@@ -116,7 +116,7 @@ struct Adapters {
         "inner": transform(OuterLenses.inner, inner)
     ], dictionaryTransformer: ValueTransformers.dictionary, newValue: Outer(count: 0, inner: Inner(count: 0)))
 
-    static let node: DictionaryAdapter<Node, AnyObject, NSError> = fix { adapter in
+    static let node: DictionaryAdapter<String, Node, AnyObject, NSError> = fix { adapter in
         return DictionaryAdapter(specification: [
             "children": transform(NodeLenses.children, lift(adapter) >>> ValueTransformers.array)
         ], dictionaryTransformer: ValueTransformers.dictionary, newValue: Node(children: []))

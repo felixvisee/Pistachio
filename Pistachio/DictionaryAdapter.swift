@@ -4,18 +4,18 @@ import Result
 import ValueTransformer
 import Monocle
 
-public struct DictionaryAdapter<Value, TransformedValue, Error>: AdapterType {
-    private let specification: [String: Lens<Result<Value, Error>, Result<TransformedValue, Error>>]
-    private let dictionaryTransformer: ReversibleValueTransformer<[String: TransformedValue], TransformedValue, Error>
+public struct DictionaryAdapter<Key: Hashable, Value, TransformedValue, Error>: AdapterType {
+    private let specification: [Key: Lens<Result<Value, Error>, Result<TransformedValue, Error>>]
+    private let dictionaryTransformer: ReversibleValueTransformer<[Key: TransformedValue], TransformedValue, Error>
     private let newValueClosure: TransformedValue -> Result<Value, Error>
 
-    public init(specification: [String: Lens<Result<Value, Error>, Result<TransformedValue, Error>>], dictionaryTransformer: ReversibleValueTransformer<[String: TransformedValue], TransformedValue, Error>, newValueClosure: TransformedValue -> Result<Value, Error>) {
+    public init(specification: [Key: Lens<Result<Value, Error>, Result<TransformedValue, Error>>], dictionaryTransformer: ReversibleValueTransformer<[Key: TransformedValue], TransformedValue, Error>, newValueClosure: TransformedValue -> Result<Value, Error>) {
         self.specification = specification
         self.dictionaryTransformer = dictionaryTransformer
         self.newValueClosure = newValueClosure
     }
 
-    public init(specification: [String: Lens<Result<Value, Error>, Result<TransformedValue, Error>>], dictionaryTransformer: ReversibleValueTransformer<[String: TransformedValue], TransformedValue, Error>, @autoclosure(escaping) newValue: () -> Value) {
+    public init(specification: [Key: Lens<Result<Value, Error>, Result<TransformedValue, Error>>], dictionaryTransformer: ReversibleValueTransformer<[Key: TransformedValue], TransformedValue, Error>, @autoclosure(escaping) newValue: () -> Value) {
         self.init(specification: specification, dictionaryTransformer: dictionaryTransformer, newValueClosure: { _ in
             return Result.success(newValue())
         })
