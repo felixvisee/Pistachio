@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC13E2411A87D3F9006DC3CA /* AdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */; };
+		DC13E2411A87D3F9006DC3CA /* DictionaryAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* DictionaryAdapterSpec.swift */; };
 		DC2077CF1A8544D7005A9CF2 /* AdapterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* AdapterType.swift */; };
 		DC20783B1A868B00005A9CF2 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2078391A868B00005A9CF2 /* Nimble.framework */; };
 		DC20783C1A868B00005A9CF2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC20783A1A868B00005A9CF2 /* Quick.framework */; };
@@ -45,7 +45,7 @@
 		DCA767961ACEAC7D007E4C12 /* Pistachio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA7678B1ACEAC7C007E4C12 /* Pistachio.framework */; };
 		DCA767A81ACEAD38007E4C12 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767A61ACEAD38007E4C12 /* Nimble.framework */; };
 		DCA767A91ACEAD38007E4C12 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767A71ACEAD38007E4C12 /* Quick.framework */; };
-		DCA767AF1ACEADA4007E4C12 /* AdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */; };
+		DCA767AF1ACEADA4007E4C12 /* DictionaryAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* DictionaryAdapterSpec.swift */; };
 		DCA767B41ACEADB1007E4C12 /* AdapterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* AdapterType.swift */; };
 		DCA767B81ACEADB4007E4C12 /* Pistachio.h in Headers */ = {isa = PBXBuildFile; fileRef = DC492A111A83BB59007B52D6 /* Pistachio.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCA767BA1ACEAF17007E4C12 /* ValueTransformer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */; };
@@ -55,6 +55,10 @@
 		DCA767BF1ACEAF6A007E4C12 /* ValueTransformer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */; };
 		DCCF43DD1AE29E43009E0012 /* DictionaryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43DC1AE29E43009E0012 /* DictionaryAdapter.swift */; };
 		DCCF43DE1AE29E43009E0012 /* DictionaryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43DC1AE29E43009E0012 /* DictionaryAdapter.swift */; };
+		DCCF43E11AE2C82E009E0012 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E01AE2C82E009E0012 /* Node.swift */; };
+		DCCF43E21AE2C82E009E0012 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E01AE2C82E009E0012 /* Node.swift */; };
+		DCCF43E51AE2E770009E0012 /* AnyObjectValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E41AE2E770009E0012 /* AnyObjectValueTransformers.swift */; };
+		DCCF43E61AE2E770009E0012 /* AnyObjectValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E41AE2E770009E0012 /* AnyObjectValueTransformers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,7 +116,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterSpec.swift; sourceTree = "<group>"; };
+		DC13E2401A87D3F9006DC3CA /* DictionaryAdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryAdapterSpec.swift; sourceTree = "<group>"; };
 		DC2077CE1A8544D7005A9CF2 /* AdapterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterType.swift; sourceTree = "<group>"; };
 		DC2078391A868B00005A9CF2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DC20783A1A868B00005A9CF2 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 		DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ValueTransformer.framework; path = Carthage/Build/iOS/ValueTransformer.framework; sourceTree = "<group>"; };
 		DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ValueTransformer.framework; path = Carthage/Build/Mac/ValueTransformer.framework; sourceTree = "<group>"; };
 		DCCF43DC1AE29E43009E0012 /* DictionaryAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryAdapter.swift; sourceTree = "<group>"; };
+		DCCF43E01AE2C82E009E0012 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		DCCF43E41AE2E770009E0012 /* AnyObjectValueTransformers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyObjectValueTransformers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,7 +245,8 @@
 		DC492A1B1A83BB59007B52D6 /* PistachioTests */ = {
 			isa = PBXGroup;
 			children = (
-				DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */,
+				DC13E2401A87D3F9006DC3CA /* DictionaryAdapterSpec.swift */,
+				DCCF43DF1AE2C807009E0012 /* Fixtures */,
 				DC492A1C1A83BB59007B52D6 /* Supporting Files */,
 			);
 			path = PistachioTests;
@@ -297,6 +304,23 @@
 				DC516CE21ADAEED7006112F2 /* Monocle.framework */,
 			);
 			name = Mac;
+			sourceTree = "<group>";
+		};
+		DCCF43DF1AE2C807009E0012 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				DCCF43E01AE2C82E009E0012 /* Node.swift */,
+				DCCF43E31AE2E770009E0012 /* Value Transformers */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		DCCF43E31AE2E770009E0012 /* Value Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				DCCF43E41AE2E770009E0012 /* AnyObjectValueTransformers.swift */,
+			);
+			path = "Value Transformers";
 			sourceTree = "<group>";
 		};
 		DCDA378D1A93F6AB00C55699 /* Frameworks */ = {
@@ -495,7 +519,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC13E2411A87D3F9006DC3CA /* AdapterSpec.swift in Sources */,
+				DC13E2411A87D3F9006DC3CA /* DictionaryAdapterSpec.swift in Sources */,
+				DCCF43E11AE2C82E009E0012 /* Node.swift in Sources */,
+				DCCF43E51AE2E770009E0012 /* AnyObjectValueTransformers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,7 +541,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCA767AF1ACEADA4007E4C12 /* AdapterSpec.swift in Sources */,
+				DCA767AF1ACEADA4007E4C12 /* DictionaryAdapterSpec.swift in Sources */,
+				DCCF43E21AE2C82E009E0012 /* Node.swift in Sources */,
+				DCCF43E61AE2E770009E0012 /* AnyObjectValueTransformers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
