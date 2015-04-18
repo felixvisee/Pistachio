@@ -40,6 +40,8 @@
 		DC7CEA1A1AE28B2F0049F077 /* LensExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CEA161AE28B2F0049F077 /* LensExtensions.swift */; };
 		DC7CEA1B1AE28B2F0049F077 /* NSNumberValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CEA181AE28B2F0049F077 /* NSNumberValueTransformers.swift */; };
 		DC7CEA1C1AE28B2F0049F077 /* NSNumberValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CEA181AE28B2F0049F077 /* NSNumberValueTransformers.swift */; };
+		DC7CEA1E1AE28D830049F077 /* LazyAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CEA1D1AE28D830049F077 /* LazyAdapter.swift */; };
+		DC7CEA1F1AE28D830049F077 /* LazyAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CEA1D1AE28D830049F077 /* LazyAdapter.swift */; };
 		DCA767961ACEAC7D007E4C12 /* Pistachio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA7678B1ACEAC7C007E4C12 /* Pistachio.framework */; };
 		DCA767A81ACEAD38007E4C12 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767A61ACEAD38007E4C12 /* Nimble.framework */; };
 		DCA767A91ACEAD38007E4C12 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767A71ACEAD38007E4C12 /* Quick.framework */; };
@@ -129,6 +131,7 @@
 		DC516CE41ADAEED7006112F2 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
 		DC7CEA161AE28B2F0049F077 /* LensExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensExtensions.swift; sourceTree = "<group>"; };
 		DC7CEA181AE28B2F0049F077 /* NSNumberValueTransformers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberValueTransformers.swift; sourceTree = "<group>"; };
+		DC7CEA1D1AE28D830049F077 /* LazyAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyAdapter.swift; sourceTree = "<group>"; };
 		DCA7678B1ACEAC7C007E4C12 /* Pistachio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pistachio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA767951ACEAC7D007E4C12 /* PistachioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PistachioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA767A61ACEAD38007E4C12 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
@@ -212,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				DC2077CE1A8544D7005A9CF2 /* Adapter.swift */,
+				DC7CEA1D1AE28D830049F077 /* LazyAdapter.swift */,
 				DC492A111A83BB59007B52D6 /* Pistachio.h */,
 				DC7CEA151AE28B2F0049F077 /* Extensions */,
 				DC7CEA171AE28B2F0049F077 /* Value Transformers */,
@@ -476,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC7CEA1B1AE28B2F0049F077 /* NSNumberValueTransformers.swift in Sources */,
+				DC7CEA1E1AE28D830049F077 /* LazyAdapter.swift in Sources */,
 				DC2077CF1A8544D7005A9CF2 /* Adapter.swift in Sources */,
 				DC7CEA191AE28B2F0049F077 /* LensExtensions.swift in Sources */,
 			);
@@ -494,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC7CEA1C1AE28B2F0049F077 /* NSNumberValueTransformers.swift in Sources */,
+				DC7CEA1F1AE28D830049F077 /* LazyAdapter.swift in Sources */,
 				DCA767B41ACEADB1007E4C12 /* Adapter.swift in Sources */,
 				DC7CEA1A1AE28B2F0049F077 /* LensExtensions.swift in Sources */,
 			);

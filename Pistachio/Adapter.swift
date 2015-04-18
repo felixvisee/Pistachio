@@ -14,22 +14,6 @@ public protocol Adapter {
     func decode(model: Model, from data: Data) -> Result<Model, Error>
 }
 
-public struct LazyAdapter<A: Adapter>: Adapter {
-    private let adapter: () -> A
-
-    public init(@autoclosure(escaping) adapter: () -> A) {
-        self.adapter = adapter
-    }
-
-    public func encode(model: A.Model) -> Result<A.Data, A.Error> {
-        return adapter().encode(model)
-    }
-
-    public func decode(model: A.Model, from data: A.Data) -> Result<A.Model, A.Error> {
-        return adapter().decode(model, from: data)
-    }
-}
-
 public struct DictionaryAdapter<Model, Data, Error>: Adapter {
     private let specification: [String: Lens<Result<Model, Error>, Result<Data, Error>>]
     private let dictionaryTansformer: ReversibleValueTransformer<[String: Data], Data, Error>
@@ -61,12 +45,6 @@ public struct DictionaryAdapter<Model, Data, Error>: Adapter {
             }
         }
     }
-}
-
-// MARK: - Fix
-
-public func fix<A: Adapter>(f: LazyAdapter<A> -> A) -> A {
-    return f(LazyAdapter(adapter: fix(f)))
 }
 
 // MARK: - Lift
