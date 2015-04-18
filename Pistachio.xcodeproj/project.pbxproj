@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC071B9F1A8810BE00DE471C /* NSNumberValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC071B9E1A8810BE00DE471C /* NSNumberValueTransformers.swift */; };
 		DC13E2411A87D3F9006DC3CA /* AdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */; };
 		DC2077CF1A8544D7005A9CF2 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* Adapter.swift */; };
 		DC20783B1A868B00005A9CF2 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2078391A868B00005A9CF2 /* Nimble.framework */; };
@@ -37,13 +36,14 @@
 		DC516CEE1ADAEF2B006112F2 /* Monocle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CE21ADAEED7006112F2 /* Monocle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC516CEF1ADAEF39006112F2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CE41ADAEED7006112F2 /* Result.framework */; };
 		DC516CF01ADAEF3C006112F2 /* Monocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CE21ADAEED7006112F2 /* Monocle.framework */; };
-		DC516CF21ADAEF88006112F2 /* LensExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC516CF11ADAEF88006112F2 /* LensExtensions.swift */; };
-		DC516CF31ADAEF88006112F2 /* LensExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC516CF11ADAEF88006112F2 /* LensExtensions.swift */; };
+		DC7CEA191AE28B2F0049F077 /* LensExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CEA161AE28B2F0049F077 /* LensExtensions.swift */; };
+		DC7CEA1A1AE28B2F0049F077 /* LensExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CEA161AE28B2F0049F077 /* LensExtensions.swift */; };
+		DC7CEA1B1AE28B2F0049F077 /* NSNumberValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CEA181AE28B2F0049F077 /* NSNumberValueTransformers.swift */; };
+		DC7CEA1C1AE28B2F0049F077 /* NSNumberValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CEA181AE28B2F0049F077 /* NSNumberValueTransformers.swift */; };
 		DCA767961ACEAC7D007E4C12 /* Pistachio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA7678B1ACEAC7C007E4C12 /* Pistachio.framework */; };
 		DCA767A81ACEAD38007E4C12 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767A61ACEAD38007E4C12 /* Nimble.framework */; };
 		DCA767A91ACEAD38007E4C12 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767A71ACEAD38007E4C12 /* Quick.framework */; };
 		DCA767AF1ACEADA4007E4C12 /* AdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */; };
-		DCA767B31ACEADAB007E4C12 /* NSNumberValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC071B9E1A8810BE00DE471C /* NSNumberValueTransformers.swift */; };
 		DCA767B41ACEADB1007E4C12 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* Adapter.swift */; };
 		DCA767B81ACEADB4007E4C12 /* Pistachio.h in Headers */ = {isa = PBXBuildFile; fileRef = DC492A111A83BB59007B52D6 /* Pistachio.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCA767BA1ACEAF17007E4C12 /* ValueTransformer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */; };
@@ -108,7 +108,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DC071B9E1A8810BE00DE471C /* NSNumberValueTransformers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberValueTransformers.swift; sourceTree = "<group>"; };
 		DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterSpec.swift; sourceTree = "<group>"; };
 		DC2077CE1A8544D7005A9CF2 /* Adapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
 		DC2078391A868B00005A9CF2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
@@ -128,7 +127,8 @@
 		DC516CE21ADAEED7006112F2 /* Monocle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Monocle.framework; path = Carthage/Build/Mac/Monocle.framework; sourceTree = "<group>"; };
 		DC516CE31ADAEED7006112F2 /* Prelude.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Prelude.framework; path = Carthage/Build/Mac/Prelude.framework; sourceTree = "<group>"; };
 		DC516CE41ADAEED7006112F2 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
-		DC516CF11ADAEF88006112F2 /* LensExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensExtensions.swift; sourceTree = "<group>"; };
+		DC7CEA161AE28B2F0049F077 /* LensExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensExtensions.swift; sourceTree = "<group>"; };
+		DC7CEA181AE28B2F0049F077 /* NSNumberValueTransformers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberValueTransformers.swift; sourceTree = "<group>"; };
 		DCA7678B1ACEAC7C007E4C12 /* Pistachio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pistachio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA767951ACEAC7D007E4C12 /* PistachioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PistachioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA767A61ACEAD38007E4C12 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
@@ -187,14 +187,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DC071B9D1A8810AC00DE471C /* Value Transformers */ = {
-			isa = PBXGroup;
-			children = (
-				DC071B9E1A8810BE00DE471C /* NSNumberValueTransformers.swift */,
-			);
-			name = "Value Transformers";
-			sourceTree = "<group>";
-		};
 		DC492A021A83BB59007B52D6 = {
 			isa = PBXGroup;
 			children = (
@@ -219,10 +211,10 @@
 		DC492A0E1A83BB59007B52D6 /* Pistachio */ = {
 			isa = PBXGroup;
 			children = (
-				DC492A111A83BB59007B52D6 /* Pistachio.h */,
 				DC2077CE1A8544D7005A9CF2 /* Adapter.swift */,
-				DC516CF11ADAEF88006112F2 /* LensExtensions.swift */,
-				DC071B9D1A8810AC00DE471C /* Value Transformers */,
+				DC492A111A83BB59007B52D6 /* Pistachio.h */,
+				DC7CEA151AE28B2F0049F077 /* Extensions */,
+				DC7CEA171AE28B2F0049F077 /* Value Transformers */,
 				DC492A0F1A83BB59007B52D6 /* Supporting Files */,
 			);
 			path = Pistachio;
@@ -251,6 +243,22 @@
 				DC492A1D1A83BB59007B52D6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC7CEA151AE28B2F0049F077 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DC7CEA161AE28B2F0049F077 /* LensExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DC7CEA171AE28B2F0049F077 /* Value Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				DC7CEA181AE28B2F0049F077 /* NSNumberValueTransformers.swift */,
+			);
+			path = "Value Transformers";
 			sourceTree = "<group>";
 		};
 		DCA767811ACEAB40007E4C12 /* iOS */ = {
@@ -467,9 +475,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC071B9F1A8810BE00DE471C /* NSNumberValueTransformers.swift in Sources */,
-				DC516CF21ADAEF88006112F2 /* LensExtensions.swift in Sources */,
+				DC7CEA1B1AE28B2F0049F077 /* NSNumberValueTransformers.swift in Sources */,
 				DC2077CF1A8544D7005A9CF2 /* Adapter.swift in Sources */,
+				DC7CEA191AE28B2F0049F077 /* LensExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,9 +493,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCA767B31ACEADAB007E4C12 /* NSNumberValueTransformers.swift in Sources */,
-				DC516CF31ADAEF88006112F2 /* LensExtensions.swift in Sources */,
+				DC7CEA1C1AE28B2F0049F077 /* NSNumberValueTransformers.swift in Sources */,
 				DCA767B41ACEADB1007E4C12 /* Adapter.swift in Sources */,
+				DC7CEA1A1AE28B2F0049F077 /* LensExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
