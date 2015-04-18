@@ -1,38 +1,47 @@
 //  Copyright (c) 2015 Felix Jendrusch. All rights reserved.
 
-import Prelude
 import Result
 import ValueTransformer
 import Monocle
 
-public struct DictionaryAdapter<Model, Data, Error>: AdapterType {
-    private let specification: [String: Lens<Result<Model, Error>, Result<Data, Error>>]
-    private let dictionaryTansformer: ReversibleValueTransformer<[String: Data], Data, Error>
+public struct DictionaryAdapter<Value, TransformedValue, Error>: AdapterType {
+    private let specification: [String: Lens<Result<Value, Error>, Result<TransformedValue, Error>>]
+    private let dictionaryTransformer: ReversibleValueTransformer<[String: TransformedValue], TransformedValue, Error>
+    private let newValueClosure: TransformedValue -> Result<Value, Error>
 
-    public init(specification: [String: Lens<Result<Model, Error>, Result<Data, Error>>], dictionaryTansformer: ReversibleValueTransformer<[String: Data], Data, Error>) {
+    public init(specification: [String: Lens<Result<Value, Error>, Result<TransformedValue, Error>>], dictionaryTransformer: ReversibleValueTransformer<[String: TransformedValue], TransformedValue, Error>, newValueClosure: TransformedValue -> Result<Value, Error>) {
         self.specification = specification
-        self.dictionaryTansformer = dictionaryTansformer
+        self.dictionaryTransformer = dictionaryTransformer
+        self.newValueClosure = newValueClosure
     }
 
-    public func encode(model: Model) -> Result<Data, Error> {
+    public init(specification: [String: Lens<Result<Value, Error>, Result<TransformedValue, Error>>], dictionaryTransformer: ReversibleValueTransformer<[String: TransformedValue], TransformedValue, Error>, @autoclosure(escaping) newValue: () -> Value) {
+        self.init(specification: specification, dictionaryTransformer: dictionaryTransformer, newValueClosure: { _ in
+            return Result.success(newValue())
+        })
+    }
+
+    public func transform(value: Value) -> Result<TransformedValue, Error> {
         return reduce(specification, Result.success([:])) { (result, element) in
+            let (key, lens) = element
             return result.flatMap { (var dictionary) in
-                return get(element.1, Result.success(model)).map { value in
-                    dictionary[element.0] = value
+                return get(lens, Result.success(value)).map { value in
+                    dictionary[key] = value
                     return dictionary
                 }
             }
-            }.flatMap(curry(transform)(dictionaryTansformer))
+        }.flatMap { dictionary in
+            return dictionaryTransformer.transform(dictionary)
+        }
     }
 
-    public func decode(model: Model, from data: Data) -> Result<Model, Error> {
-        return dictionaryTansformer.reverseTransform(data).flatMap { dictionary in
-            return reduce(specification, Result.success(model)) { (result, element) in
-                if let value = dictionary[element.0] {
-                    return set(element.1, result, Result.success(value))
-                } else {
-                    return result
-                }
+    public func reverseTransform(transformedValue: TransformedValue) -> Result<Value, Error> {
+        return dictionaryTransformer.reverseTransform(transformedValue).flatMap { dictionary in
+            return reduce(self.specification, self.newValueClosure(transformedValue)) { (result, element) in
+                let (key, lens) = element
+                return map(dictionary[key]) { value in
+                    return set(lens, result, Result.success(value))
+                } ?? result
             }
         }
     }

@@ -9,12 +9,12 @@ public struct LazyAdapter<A: AdapterType>: AdapterType {
         self.adapter = adapter
     }
 
-    public func encode(model: A.Model) -> Result<A.Data, A.Error> {
-        return adapter().encode(model)
+    public func transform(value: A.ValueType) -> Result<A.TransformedValueType, A.ErrorType> {
+        return adapter().transform(value)
     }
 
-    public func decode(model: A.Model, from data: A.Data) -> Result<A.Model, A.Error> {
-        return adapter().decode(model, from: data)
+    public func reverseTransform(transformedValue: A.TransformedValueType) -> Result<A.ValueType, A.ErrorType> {
+        return adapter().reverseTransform(transformedValue)
     }
 }
 
