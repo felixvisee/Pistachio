@@ -15,9 +15,9 @@ struct NodeLenses {
 }
 
 struct NodeAdapters {
-    static let anyObject: DictionaryAdapter<String, Node, AnyObject, NSError> = fix { adapter in
+    static let anyObject = fix { adapter in
         return DictionaryAdapter(specification: [
             "children": transform(NodeLenses.children, lift(adapter) >>> AnyObjectValueTransformers.array)
-        ], dictionaryTransformer: AnyObjectValueTransformers.dictionary, newValue: Node(children: []))
+        ], dictionaryTransformer: AnyObjectValueTransformers.dictionary, value: Node(children: []))
     }
 }
