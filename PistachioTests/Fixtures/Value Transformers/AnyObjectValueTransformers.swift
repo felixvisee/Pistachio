@@ -4,6 +4,17 @@ import Result
 import ValueTransformer
 
 struct AnyObjectValueTransformers {
+    static let int = ReversibleValueTransformer<Int, AnyObject, NSError>(transformClosure: { value in
+        return Result.success(value)
+    }, reverseTransformClosure: { transformedValue in
+        switch transformedValue {
+        case let transformedValue as Int:
+            return Result.success(transformedValue)
+        default:
+            return Result.failure(NSError())
+        }
+    })
+
     static let array = ReversibleValueTransformer<[AnyObject], AnyObject, NSError>(transformClosure: { value in
         return Result.success(value)
     }, reverseTransformClosure: { transformedValue in

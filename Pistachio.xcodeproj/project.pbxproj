@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC13E2411A87D3F9006DC3CA /* DictionaryAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* DictionaryAdapterSpec.swift */; };
+		DC13E2411A87D3F9006DC3CA /* LazyAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* LazyAdapterSpec.swift */; };
 		DC2077CF1A8544D7005A9CF2 /* AdapterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* AdapterType.swift */; };
 		DC20783B1A868B00005A9CF2 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2078391A868B00005A9CF2 /* Nimble.framework */; };
 		DC20783C1A868B00005A9CF2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC20783A1A868B00005A9CF2 /* Quick.framework */; };
+		DC374CDA1AE5B71E00A37122 /* LensExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC374CD91AE5B71E00A37122 /* LensExtensionsSpec.swift */; };
+		DC374CDB1AE5B71E00A37122 /* LensExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC374CD91AE5B71E00A37122 /* LensExtensionsSpec.swift */; };
 		DC492A121A83BB59007B52D6 /* Pistachio.h in Headers */ = {isa = PBXBuildFile; fileRef = DC492A111A83BB59007B52D6 /* Pistachio.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC492A181A83BB59007B52D6 /* Pistachio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC492A0C1A83BB59007B52D6 /* Pistachio.framework */; };
 		DC516CCE1ADAEDAC006112F2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CCD1ADAEDAC006112F2 /* Result.framework */; };
@@ -45,7 +47,7 @@
 		DCA767961ACEAC7D007E4C12 /* Pistachio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA7678B1ACEAC7C007E4C12 /* Pistachio.framework */; };
 		DCA767A81ACEAD38007E4C12 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767A61ACEAD38007E4C12 /* Nimble.framework */; };
 		DCA767A91ACEAD38007E4C12 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767A71ACEAD38007E4C12 /* Quick.framework */; };
-		DCA767AF1ACEADA4007E4C12 /* DictionaryAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* DictionaryAdapterSpec.swift */; };
+		DCA767AF1ACEADA4007E4C12 /* LazyAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* LazyAdapterSpec.swift */; };
 		DCA767B41ACEADB1007E4C12 /* AdapterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* AdapterType.swift */; };
 		DCA767B81ACEADB4007E4C12 /* Pistachio.h in Headers */ = {isa = PBXBuildFile; fileRef = DC492A111A83BB59007B52D6 /* Pistachio.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCA767BA1ACEAF17007E4C12 /* ValueTransformer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */; };
@@ -59,6 +61,10 @@
 		DCCF43E21AE2C82E009E0012 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E01AE2C82E009E0012 /* Node.swift */; };
 		DCCF43E51AE2E770009E0012 /* AnyObjectValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E41AE2E770009E0012 /* AnyObjectValueTransformers.swift */; };
 		DCCF43E61AE2E770009E0012 /* AnyObjectValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E41AE2E770009E0012 /* AnyObjectValueTransformers.swift */; };
+		DCCF43E81AE461E1009E0012 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E71AE461E1009E0012 /* Counter.swift */; };
+		DCCF43E91AE461E1009E0012 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E71AE461E1009E0012 /* Counter.swift */; };
+		DCCF43EB1AE46775009E0012 /* DictionaryAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43EA1AE46775009E0012 /* DictionaryAdapterSpec.swift */; };
+		DCCF43EC1AE46775009E0012 /* DictionaryAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43EA1AE46775009E0012 /* DictionaryAdapterSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,10 +122,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DC13E2401A87D3F9006DC3CA /* DictionaryAdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryAdapterSpec.swift; sourceTree = "<group>"; };
+		DC13E2401A87D3F9006DC3CA /* LazyAdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyAdapterSpec.swift; sourceTree = "<group>"; };
 		DC2077CE1A8544D7005A9CF2 /* AdapterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterType.swift; sourceTree = "<group>"; };
 		DC2078391A868B00005A9CF2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DC20783A1A868B00005A9CF2 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		DC374CD91AE5B71E00A37122 /* LensExtensionsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensExtensionsSpec.swift; sourceTree = "<group>"; };
 		DC492A0C1A83BB59007B52D6 /* Pistachio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pistachio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC492A101A83BB59007B52D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC492A111A83BB59007B52D6 /* Pistachio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pistachio.h; sourceTree = "<group>"; };
@@ -147,6 +154,8 @@
 		DCCF43DC1AE29E43009E0012 /* DictionaryAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryAdapter.swift; sourceTree = "<group>"; };
 		DCCF43E01AE2C82E009E0012 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		DCCF43E41AE2E770009E0012 /* AnyObjectValueTransformers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyObjectValueTransformers.swift; sourceTree = "<group>"; };
+		DCCF43E71AE461E1009E0012 /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		DCCF43EA1AE46775009E0012 /* DictionaryAdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryAdapterSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +208,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC374CD81AE5B71E00A37122 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DC374CD91AE5B71E00A37122 /* LensExtensionsSpec.swift */,
+			);
+			name = Extensions;
+			path = PistachioTests/Extensions;
+			sourceTree = SOURCE_ROOT;
+		};
 		DC492A021A83BB59007B52D6 = {
 			isa = PBXGroup;
 			children = (
@@ -245,7 +263,9 @@
 		DC492A1B1A83BB59007B52D6 /* PistachioTests */ = {
 			isa = PBXGroup;
 			children = (
-				DC13E2401A87D3F9006DC3CA /* DictionaryAdapterSpec.swift */,
+				DCCF43EA1AE46775009E0012 /* DictionaryAdapterSpec.swift */,
+				DC13E2401A87D3F9006DC3CA /* LazyAdapterSpec.swift */,
+				DC374CD81AE5B71E00A37122 /* Extensions */,
 				DCCF43DF1AE2C807009E0012 /* Fixtures */,
 				DC492A1C1A83BB59007B52D6 /* Supporting Files */,
 			);
@@ -309,6 +329,7 @@
 		DCCF43DF1AE2C807009E0012 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				DCCF43E71AE461E1009E0012 /* Counter.swift */,
 				DCCF43E01AE2C82E009E0012 /* Node.swift */,
 				DCCF43E31AE2E770009E0012 /* Value Transformers */,
 			);
@@ -519,8 +540,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC13E2411A87D3F9006DC3CA /* DictionaryAdapterSpec.swift in Sources */,
+				DCCF43EB1AE46775009E0012 /* DictionaryAdapterSpec.swift in Sources */,
+				DC13E2411A87D3F9006DC3CA /* LazyAdapterSpec.swift in Sources */,
 				DCCF43E11AE2C82E009E0012 /* Node.swift in Sources */,
+				DCCF43E81AE461E1009E0012 /* Counter.swift in Sources */,
+				DC374CDA1AE5B71E00A37122 /* LensExtensionsSpec.swift in Sources */,
 				DCCF43E51AE2E770009E0012 /* AnyObjectValueTransformers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,8 +565,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCA767AF1ACEADA4007E4C12 /* DictionaryAdapterSpec.swift in Sources */,
+				DCCF43EC1AE46775009E0012 /* DictionaryAdapterSpec.swift in Sources */,
+				DCA767AF1ACEADA4007E4C12 /* LazyAdapterSpec.swift in Sources */,
 				DCCF43E21AE2C82E009E0012 /* Node.swift in Sources */,
+				DCCF43E91AE461E1009E0012 /* Counter.swift in Sources */,
+				DC374CDB1AE5B71E00A37122 /* LensExtensionsSpec.swift in Sources */,
 				DCCF43E61AE2E770009E0012 /* AnyObjectValueTransformers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

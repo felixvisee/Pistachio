@@ -8,18 +8,18 @@ import Pistachio
 class DictionaryAdapterSpec: QuickSpec {
     override func spec() {
         describe("A DictionaryAdapter") {
-            let adapter = NodeAdapters.anyObject
+            var adapter = CounterAdapters.anyObject
 
             it("should transform a value") {
-                let result = adapter.transform(Node(children: [ Node(children: []) ]))
+                let result = adapter.transform(Counter(count: 1))
 
-                expect(((result.value as? [String: AnyObject])?["children"] as? [AnyObject])?.count).to(equal(1))
+                expect((result.value as? [String: AnyObject])?["count"] as? Int).to(equal(1))
             }
 
             it("should reverse transform a value") {
-                let result = adapter.reverseTransform([ "children": [ [ "children": [] ] ] ])
+                let result = adapter.reverseTransform([ "count": 1 ])
 
-                expect(result.value?.children.count).to(equal(1))
+                expect(result.value).to(equal(Counter(count: 1)))
             }
         }
     }

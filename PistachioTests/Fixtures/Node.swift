@@ -4,8 +4,12 @@ import ValueTransformer
 import Monocle
 import Pistachio
 
-struct Node {
+struct Node: Equatable {
     var children: [Node]
+}
+
+func == (lhs: Node, rhs: Node) -> Bool {
+    return lhs.children == rhs.children
 }
 
 struct NodeLenses {
