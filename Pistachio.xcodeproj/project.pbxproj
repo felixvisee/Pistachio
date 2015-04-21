@@ -18,11 +18,8 @@
 		DC516CCE1ADAEDAC006112F2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CCD1ADAEDAC006112F2 /* Result.framework */; };
 		DC516CCF1ADAEE00006112F2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CCD1ADAEDAC006112F2 /* Result.framework */; };
 		DC516CD01ADAEE08006112F2 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CCD1ADAEDAC006112F2 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC516CD81ADAEE27006112F2 /* Prelude.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CD41ADAEE27006112F2 /* Prelude.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC516CD91ADAEE58006112F2 /* Monocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CD31ADAEE27006112F2 /* Monocle.framework */; };
 		DC516CDA1ADAEE74006112F2 /* Monocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CD31ADAEE27006112F2 /* Monocle.framework */; };
-		DC516CDB1ADAEE9C006112F2 /* Box.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CD11ADAEE27006112F2 /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC516CDC1ADAEE9C006112F2 /* Either.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CD21ADAEE27006112F2 /* Either.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC516CDD1ADAEEA3006112F2 /* Monocle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CD31ADAEE27006112F2 /* Monocle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC516CDE1ADAEEAE006112F2 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC20783A1A868B00005A9CF2 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC516CDF1ADAEEAE006112F2 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC2078391A868B00005A9CF2 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -30,9 +27,6 @@
 		DC516CE61ADAEF17006112F2 /* Monocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CE21ADAEED7006112F2 /* Monocle.framework */; };
 		DC516CE71ADAEF2B006112F2 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA767A71ACEAD38007E4C12 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC516CE81ADAEF2B006112F2 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA767A61ACEAD38007E4C12 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC516CE91ADAEF2B006112F2 /* Prelude.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CE31ADAEED7006112F2 /* Prelude.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC516CEA1ADAEF2B006112F2 /* Box.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CE01ADAEED7006112F2 /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC516CEB1ADAEF2B006112F2 /* Either.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CE11ADAEED7006112F2 /* Either.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC516CEC1ADAEF2B006112F2 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CE41ADAEED7006112F2 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC516CED1ADAEF2B006112F2 /* ValueTransformer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC516CEE1ADAEF2B006112F2 /* Monocle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CE21ADAEED7006112F2 /* Monocle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -93,9 +87,6 @@
 			files = (
 				DC516CDE1ADAEEAE006112F2 /* Quick.framework in CopyFiles */,
 				DC516CDF1ADAEEAE006112F2 /* Nimble.framework in CopyFiles */,
-				DC516CD81ADAEE27006112F2 /* Prelude.framework in CopyFiles */,
-				DC516CDB1ADAEE9C006112F2 /* Box.framework in CopyFiles */,
-				DC516CDC1ADAEE9C006112F2 /* Either.framework in CopyFiles */,
 				DC516CD01ADAEE08006112F2 /* Result.framework in CopyFiles */,
 				DCA767BE1ACEAF5A007E4C12 /* ValueTransformer.framework in CopyFiles */,
 				DC516CDD1ADAEEA3006112F2 /* Monocle.framework in CopyFiles */,
@@ -110,9 +101,6 @@
 			files = (
 				DC516CE71ADAEF2B006112F2 /* Quick.framework in CopyFiles */,
 				DC516CE81ADAEF2B006112F2 /* Nimble.framework in CopyFiles */,
-				DC516CE91ADAEF2B006112F2 /* Prelude.framework in CopyFiles */,
-				DC516CEA1ADAEF2B006112F2 /* Box.framework in CopyFiles */,
-				DC516CEB1ADAEF2B006112F2 /* Either.framework in CopyFiles */,
 				DC516CEC1ADAEF2B006112F2 /* Result.framework in CopyFiles */,
 				DC516CED1ADAEF2B006112F2 /* ValueTransformer.framework in CopyFiles */,
 				DC516CEE1ADAEF2B006112F2 /* Monocle.framework in CopyFiles */,
@@ -133,14 +121,8 @@
 		DC492A171A83BB59007B52D6 /* PistachioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PistachioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC492A1D1A83BB59007B52D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC516CCD1ADAEDAC006112F2 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
-		DC516CD11ADAEE27006112F2 /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/iOS/Box.framework; sourceTree = "<group>"; };
-		DC516CD21ADAEE27006112F2 /* Either.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Either.framework; path = Carthage/Build/iOS/Either.framework; sourceTree = "<group>"; };
 		DC516CD31ADAEE27006112F2 /* Monocle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Monocle.framework; path = Carthage/Build/iOS/Monocle.framework; sourceTree = "<group>"; };
-		DC516CD41ADAEE27006112F2 /* Prelude.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Prelude.framework; path = Carthage/Build/iOS/Prelude.framework; sourceTree = "<group>"; };
-		DC516CE01ADAEED7006112F2 /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/Mac/Box.framework; sourceTree = "<group>"; };
-		DC516CE11ADAEED7006112F2 /* Either.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Either.framework; path = Carthage/Build/Mac/Either.framework; sourceTree = "<group>"; };
 		DC516CE21ADAEED7006112F2 /* Monocle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Monocle.framework; path = Carthage/Build/Mac/Monocle.framework; sourceTree = "<group>"; };
-		DC516CE31ADAEED7006112F2 /* Prelude.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Prelude.framework; path = Carthage/Build/Mac/Prelude.framework; sourceTree = "<group>"; };
 		DC516CE41ADAEED7006112F2 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
 		DC7CEA161AE28B2F0049F077 /* LensExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensExtensions.swift; sourceTree = "<group>"; };
 		DC7CEA181AE28B2F0049F077 /* NSNumberValueTransformers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberValueTransformers.swift; sourceTree = "<group>"; };
@@ -301,9 +283,6 @@
 			children = (
 				DC20783A1A868B00005A9CF2 /* Quick.framework */,
 				DC2078391A868B00005A9CF2 /* Nimble.framework */,
-				DC516CD41ADAEE27006112F2 /* Prelude.framework */,
-				DC516CD11ADAEE27006112F2 /* Box.framework */,
-				DC516CD21ADAEE27006112F2 /* Either.framework */,
 				DC516CCD1ADAEDAC006112F2 /* Result.framework */,
 				DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */,
 				DC516CD31ADAEE27006112F2 /* Monocle.framework */,
@@ -316,9 +295,6 @@
 			children = (
 				DCA767A71ACEAD38007E4C12 /* Quick.framework */,
 				DCA767A61ACEAD38007E4C12 /* Nimble.framework */,
-				DC516CE31ADAEED7006112F2 /* Prelude.framework */,
-				DC516CE01ADAEED7006112F2 /* Box.framework */,
-				DC516CE11ADAEED7006112F2 /* Either.framework */,
 				DC516CE41ADAEED7006112F2 /* Result.framework */,
 				DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */,
 				DC516CE21ADAEED7006112F2 /* Monocle.framework */,

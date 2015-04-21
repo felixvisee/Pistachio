@@ -1,6 +1,5 @@
 //  Copyright (c) 2015 Felix Jendrusch. All rights reserved.
 
-import Prelude
 import Result
 import ValueTransformer
 import Monocle
@@ -27,11 +26,11 @@ public func map<A, V: ReversibleValueTransformerType>(lens: Lens<A, V.ValueType>
 
 public func map<A, V: ReversibleValueTransformerType>(lens: Lens<Result<A, V.ErrorType>, Result<V.ValueType, V.ErrorType>>, reversibleValueTransformer: V) -> Lens<Result<A, V.ErrorType>, Result<V.TransformedValueType, V.ErrorType>> {
     let get: Result<A, V.ErrorType> -> Result<V.TransformedValueType, V.ErrorType> = { a in
-        return Monocle.get(lens, a).flatMap(curry(transform)(reversibleValueTransformer))
+        return Monocle.get(lens, a).flatMap(transform(reversibleValueTransformer))
     }
 
     let set: (Result<A, V.ErrorType>, Result<V.TransformedValueType, V.ErrorType>) -> Result<A, V.ErrorType> = { a, c in
-        return Monocle.set(lens, a, c.flatMap(curry(reverseTransform)(reversibleValueTransformer)))
+        return Monocle.set(lens, a, c.flatMap(reverseTransform(reversibleValueTransformer)))
     }
 
     return Lens(get: get, set: set)
