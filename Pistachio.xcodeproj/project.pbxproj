@@ -7,40 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC071B9F1A8810BE00DE471C /* NSNumberValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC071B9E1A8810BE00DE471C /* NSNumberValueTransformers.swift */; };
-		DC13E2411A87D3F9006DC3CA /* AdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */; };
-		DC2077CF1A8544D7005A9CF2 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* Adapter.swift */; };
+		DC13E2411A87D3F9006DC3CA /* LazyAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* LazyAdapterSpec.swift */; };
+		DC2077CF1A8544D7005A9CF2 /* AdapterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* AdapterType.swift */; };
 		DC20783B1A868B00005A9CF2 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2078391A868B00005A9CF2 /* Nimble.framework */; };
 		DC20783C1A868B00005A9CF2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC20783A1A868B00005A9CF2 /* Quick.framework */; };
-		DC2078401A868C25005A9CF2 /* LensSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20783F1A868C25005A9CF2 /* LensSpec.swift */; };
-		DC2078441A87C08A005A9CF2 /* UtilsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2078431A87C08A005A9CF2 /* UtilsSpec.swift */; };
-		DC2078461A87CCC5005A9CF2 /* ValueTransformerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2078451A87CCC5005A9CF2 /* ValueTransformerSpec.swift */; };
-		DC3927E41A85365C00982AC1 /* LlamaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3927E31A85365C00982AC1 /* LlamaKit.framework */; };
+		DC374CDA1AE5B71E00A37122 /* LensExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC374CD91AE5B71E00A37122 /* LensExtensionsSpec.swift */; };
+		DC374CDB1AE5B71E00A37122 /* LensExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC374CD91AE5B71E00A37122 /* LensExtensionsSpec.swift */; };
 		DC492A121A83BB59007B52D6 /* Pistachio.h in Headers */ = {isa = PBXBuildFile; fileRef = DC492A111A83BB59007B52D6 /* Pistachio.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC492A181A83BB59007B52D6 /* Pistachio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC492A0C1A83BB59007B52D6 /* Pistachio.framework */; };
-		DC492A291A83BB73007B52D6 /* Lens.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC492A281A83BB73007B52D6 /* Lens.swift */; };
-		DC492A2E1A83BD33007B52D6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC492A2D1A83BD33007B52D6 /* Utils.swift */; };
-		DC492A361A84096D007B52D6 /* ValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC492A351A84096D007B52D6 /* ValueTransformer.swift */; };
-		DCA767831ACEAB73007E4C12 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC20783A1A868B00005A9CF2 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DCA767841ACEAB73007E4C12 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC2078391A868B00005A9CF2 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DCA767851ACEAB73007E4C12 /* LlamaKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC3927E31A85365C00982AC1 /* LlamaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC516CCE1ADAEDAC006112F2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CCD1ADAEDAC006112F2 /* Result.framework */; };
+		DC516CCF1ADAEE00006112F2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CCD1ADAEDAC006112F2 /* Result.framework */; };
+		DC516CD01ADAEE08006112F2 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CCD1ADAEDAC006112F2 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC516CD91ADAEE58006112F2 /* Monocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CD31ADAEE27006112F2 /* Monocle.framework */; };
+		DC516CDA1ADAEE74006112F2 /* Monocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CD31ADAEE27006112F2 /* Monocle.framework */; };
+		DC516CDD1ADAEEA3006112F2 /* Monocle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CD31ADAEE27006112F2 /* Monocle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC516CDE1ADAEEAE006112F2 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC20783A1A868B00005A9CF2 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC516CDF1ADAEEAE006112F2 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC2078391A868B00005A9CF2 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC516CE51ADAEF14006112F2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CE41ADAEED7006112F2 /* Result.framework */; };
+		DC516CE61ADAEF17006112F2 /* Monocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CE21ADAEED7006112F2 /* Monocle.framework */; };
+		DC516CE71ADAEF2B006112F2 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA767A71ACEAD38007E4C12 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC516CE81ADAEF2B006112F2 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA767A61ACEAD38007E4C12 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC516CEC1ADAEF2B006112F2 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CE41ADAEED7006112F2 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC516CED1ADAEF2B006112F2 /* ValueTransformer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC516CEE1ADAEF2B006112F2 /* Monocle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CE21ADAEED7006112F2 /* Monocle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC516CEF1ADAEF39006112F2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CE41ADAEED7006112F2 /* Result.framework */; };
+		DC516CF01ADAEF3C006112F2 /* Monocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CE21ADAEED7006112F2 /* Monocle.framework */; };
+		DC7CEA191AE28B2F0049F077 /* LensExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CEA161AE28B2F0049F077 /* LensExtensions.swift */; };
+		DC7CEA1A1AE28B2F0049F077 /* LensExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CEA161AE28B2F0049F077 /* LensExtensions.swift */; };
+		DC7CEA1B1AE28B2F0049F077 /* NSNumberValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CEA181AE28B2F0049F077 /* NSNumberValueTransformers.swift */; };
+		DC7CEA1C1AE28B2F0049F077 /* NSNumberValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CEA181AE28B2F0049F077 /* NSNumberValueTransformers.swift */; };
+		DC7CEA1E1AE28D830049F077 /* LazyAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CEA1D1AE28D830049F077 /* LazyAdapter.swift */; };
+		DC7CEA1F1AE28D830049F077 /* LazyAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CEA1D1AE28D830049F077 /* LazyAdapter.swift */; };
 		DCA767961ACEAC7D007E4C12 /* Pistachio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA7678B1ACEAC7C007E4C12 /* Pistachio.framework */; };
-		DCA767A51ACEACF9007E4C12 /* LlamaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767A41ACEACF9007E4C12 /* LlamaKit.framework */; };
 		DCA767A81ACEAD38007E4C12 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767A61ACEAD38007E4C12 /* Nimble.framework */; };
 		DCA767A91ACEAD38007E4C12 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767A71ACEAD38007E4C12 /* Quick.framework */; };
-		DCA767AB1ACEAD4B007E4C12 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA767A61ACEAD38007E4C12 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DCA767AC1ACEAD4B007E4C12 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA767A71ACEAD38007E4C12 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DCA767AD1ACEAD4B007E4C12 /* LlamaKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA767A41ACEACF9007E4C12 /* LlamaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DCA767AF1ACEADA4007E4C12 /* AdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */; };
-		DCA767B01ACEADA4007E4C12 /* LensSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20783F1A868C25005A9CF2 /* LensSpec.swift */; };
-		DCA767B11ACEADA4007E4C12 /* UtilsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2078431A87C08A005A9CF2 /* UtilsSpec.swift */; };
-		DCA767B21ACEADA4007E4C12 /* ValueTransformerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2078451A87CCC5005A9CF2 /* ValueTransformerSpec.swift */; };
-		DCA767B31ACEADAB007E4C12 /* NSNumberValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC071B9E1A8810BE00DE471C /* NSNumberValueTransformers.swift */; };
-		DCA767B41ACEADB1007E4C12 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* Adapter.swift */; };
-		DCA767B51ACEADB1007E4C12 /* Lens.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC492A281A83BB73007B52D6 /* Lens.swift */; };
-		DCA767B61ACEADB1007E4C12 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC492A2D1A83BD33007B52D6 /* Utils.swift */; };
-		DCA767B71ACEADB1007E4C12 /* ValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC492A351A84096D007B52D6 /* ValueTransformer.swift */; };
+		DCA767AF1ACEADA4007E4C12 /* LazyAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E2401A87D3F9006DC3CA /* LazyAdapterSpec.swift */; };
+		DCA767B41ACEADB1007E4C12 /* AdapterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2077CE1A8544D7005A9CF2 /* AdapterType.swift */; };
 		DCA767B81ACEADB4007E4C12 /* Pistachio.h in Headers */ = {isa = PBXBuildFile; fileRef = DC492A111A83BB59007B52D6 /* Pistachio.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCA767BA1ACEAF17007E4C12 /* ValueTransformer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */; };
+		DCA767BC1ACEAF35007E4C12 /* ValueTransformer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */; };
+		DCA767BD1ACEAF52007E4C12 /* ValueTransformer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */; };
+		DCA767BE1ACEAF5A007E4C12 /* ValueTransformer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DCA767BF1ACEAF6A007E4C12 /* ValueTransformer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */; };
+		DCCF43DD1AE29E43009E0012 /* DictionaryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43DC1AE29E43009E0012 /* DictionaryAdapter.swift */; };
+		DCCF43DE1AE29E43009E0012 /* DictionaryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43DC1AE29E43009E0012 /* DictionaryAdapter.swift */; };
+		DCCF43E11AE2C82E009E0012 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E01AE2C82E009E0012 /* Node.swift */; };
+		DCCF43E21AE2C82E009E0012 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E01AE2C82E009E0012 /* Node.swift */; };
+		DCCF43E51AE2E770009E0012 /* AnyObjectValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E41AE2E770009E0012 /* AnyObjectValueTransformers.swift */; };
+		DCCF43E61AE2E770009E0012 /* AnyObjectValueTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E41AE2E770009E0012 /* AnyObjectValueTransformers.swift */; };
+		DCCF43E81AE461E1009E0012 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E71AE461E1009E0012 /* Counter.swift */; };
+		DCCF43E91AE461E1009E0012 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E71AE461E1009E0012 /* Counter.swift */; };
+		DCCF43EB1AE46775009E0012 /* DictionaryAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43EA1AE46775009E0012 /* DictionaryAdapterSpec.swift */; };
+		DCCF43EC1AE46775009E0012 /* DictionaryAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43EA1AE46775009E0012 /* DictionaryAdapterSpec.swift */; };
+		DCE2DDE31AF1A4340075FF3B /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE2DDE21AF1A4340075FF3B /* Box.framework */; };
+		DCE2DDE41AF1A43C0075FF3B /* Box.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCE2DDE11AF1A42A0075FF3B /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DCE2DDE51AF1A4420075FF3B /* Box.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCE2DDE21AF1A4340075FF3B /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,9 +88,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DCA767831ACEAB73007E4C12 /* Quick.framework in CopyFiles */,
-				DCA767841ACEAB73007E4C12 /* Nimble.framework in CopyFiles */,
-				DCA767851ACEAB73007E4C12 /* LlamaKit.framework in CopyFiles */,
+				DC516CDE1ADAEEAE006112F2 /* Quick.framework in CopyFiles */,
+				DC516CDF1ADAEEAE006112F2 /* Nimble.framework in CopyFiles */,
+				DCE2DDE41AF1A43C0075FF3B /* Box.framework in CopyFiles */,
+				DC516CD01ADAEE08006112F2 /* Result.framework in CopyFiles */,
+				DCA767BE1ACEAF5A007E4C12 /* ValueTransformer.framework in CopyFiles */,
+				DC516CDD1ADAEEA3006112F2 /* Monocle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,37 +103,48 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DCA767AB1ACEAD4B007E4C12 /* Nimble.framework in CopyFiles */,
-				DCA767AC1ACEAD4B007E4C12 /* Quick.framework in CopyFiles */,
-				DCA767AD1ACEAD4B007E4C12 /* LlamaKit.framework in CopyFiles */,
+				DC516CE71ADAEF2B006112F2 /* Quick.framework in CopyFiles */,
+				DC516CE81ADAEF2B006112F2 /* Nimble.framework in CopyFiles */,
+				DCE2DDE51AF1A4420075FF3B /* Box.framework in CopyFiles */,
+				DC516CEC1ADAEF2B006112F2 /* Result.framework in CopyFiles */,
+				DC516CED1ADAEF2B006112F2 /* ValueTransformer.framework in CopyFiles */,
+				DC516CEE1ADAEF2B006112F2 /* Monocle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DC071B9E1A8810BE00DE471C /* NSNumberValueTransformers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberValueTransformers.swift; sourceTree = "<group>"; };
-		DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterSpec.swift; sourceTree = "<group>"; };
-		DC2077CE1A8544D7005A9CF2 /* Adapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
+		DC13E2401A87D3F9006DC3CA /* LazyAdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyAdapterSpec.swift; sourceTree = "<group>"; };
+		DC2077CE1A8544D7005A9CF2 /* AdapterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterType.swift; sourceTree = "<group>"; };
 		DC2078391A868B00005A9CF2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DC20783A1A868B00005A9CF2 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
-		DC20783F1A868C25005A9CF2 /* LensSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensSpec.swift; sourceTree = "<group>"; };
-		DC2078431A87C08A005A9CF2 /* UtilsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilsSpec.swift; sourceTree = "<group>"; };
-		DC2078451A87CCC5005A9CF2 /* ValueTransformerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueTransformerSpec.swift; sourceTree = "<group>"; };
-		DC3927E31A85365C00982AC1 /* LlamaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LlamaKit.framework; path = Carthage/Build/iOS/LlamaKit.framework; sourceTree = "<group>"; };
+		DC374CD91AE5B71E00A37122 /* LensExtensionsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensExtensionsSpec.swift; sourceTree = "<group>"; };
 		DC492A0C1A83BB59007B52D6 /* Pistachio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pistachio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC492A101A83BB59007B52D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC492A111A83BB59007B52D6 /* Pistachio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pistachio.h; sourceTree = "<group>"; };
 		DC492A171A83BB59007B52D6 /* PistachioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PistachioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC492A1D1A83BB59007B52D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC492A281A83BB73007B52D6 /* Lens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lens.swift; sourceTree = "<group>"; };
-		DC492A2D1A83BD33007B52D6 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		DC492A351A84096D007B52D6 /* ValueTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueTransformer.swift; sourceTree = "<group>"; };
+		DC516CCD1ADAEDAC006112F2 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		DC516CD31ADAEE27006112F2 /* Monocle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Monocle.framework; path = Carthage/Build/iOS/Monocle.framework; sourceTree = "<group>"; };
+		DC516CE21ADAEED7006112F2 /* Monocle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Monocle.framework; path = Carthage/Build/Mac/Monocle.framework; sourceTree = "<group>"; };
+		DC516CE41ADAEED7006112F2 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
+		DC7CEA161AE28B2F0049F077 /* LensExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensExtensions.swift; sourceTree = "<group>"; };
+		DC7CEA181AE28B2F0049F077 /* NSNumberValueTransformers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberValueTransformers.swift; sourceTree = "<group>"; };
+		DC7CEA1D1AE28D830049F077 /* LazyAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyAdapter.swift; sourceTree = "<group>"; };
 		DCA7678B1ACEAC7C007E4C12 /* Pistachio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pistachio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA767951ACEAC7D007E4C12 /* PistachioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PistachioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCA767A41ACEACF9007E4C12 /* LlamaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LlamaKit.framework; path = Carthage/Build/Mac/LlamaKit.framework; sourceTree = "<group>"; };
 		DCA767A61ACEAD38007E4C12 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		DCA767A71ACEAD38007E4C12 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
+		DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ValueTransformer.framework; path = Carthage/Build/iOS/ValueTransformer.framework; sourceTree = "<group>"; };
+		DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ValueTransformer.framework; path = Carthage/Build/Mac/ValueTransformer.framework; sourceTree = "<group>"; };
+		DCCF43DC1AE29E43009E0012 /* DictionaryAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryAdapter.swift; sourceTree = "<group>"; };
+		DCCF43E01AE2C82E009E0012 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		DCCF43E41AE2E770009E0012 /* AnyObjectValueTransformers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyObjectValueTransformers.swift; sourceTree = "<group>"; };
+		DCCF43E71AE461E1009E0012 /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		DCCF43EA1AE46775009E0012 /* DictionaryAdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryAdapterSpec.swift; sourceTree = "<group>"; };
+		DCE2DDE11AF1A42A0075FF3B /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/iOS/Box.framework; sourceTree = "<group>"; };
+		DCE2DDE21AF1A4340075FF3B /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/Mac/Box.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +152,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC3927E41A85365C00982AC1 /* LlamaKit.framework in Frameworks */,
+				DC516CCE1ADAEDAC006112F2 /* Result.framework in Frameworks */,
+				DCA767BA1ACEAF17007E4C12 /* ValueTransformer.framework in Frameworks */,
+				DCE2DDE31AF1A4340075FF3B /* Box.framework in Frameworks */,
+				DC516CD91ADAEE58006112F2 /* Monocle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +165,9 @@
 			files = (
 				DC20783C1A868B00005A9CF2 /* Quick.framework in Frameworks */,
 				DC20783B1A868B00005A9CF2 /* Nimble.framework in Frameworks */,
+				DC516CCF1ADAEE00006112F2 /* Result.framework in Frameworks */,
+				DCA767BD1ACEAF52007E4C12 /* ValueTransformer.framework in Frameworks */,
+				DC516CDA1ADAEE74006112F2 /* Monocle.framework in Frameworks */,
 				DC492A181A83BB59007B52D6 /* Pistachio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,7 +176,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCA767A51ACEACF9007E4C12 /* LlamaKit.framework in Frameworks */,
+				DC516CE51ADAEF14006112F2 /* Result.framework in Frameworks */,
+				DCA767BC1ACEAF35007E4C12 /* ValueTransformer.framework in Frameworks */,
+				DC516CE61ADAEF17006112F2 /* Monocle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +188,9 @@
 			files = (
 				DCA767A91ACEAD38007E4C12 /* Quick.framework in Frameworks */,
 				DCA767A81ACEAD38007E4C12 /* Nimble.framework in Frameworks */,
+				DC516CEF1ADAEF39006112F2 /* Result.framework in Frameworks */,
+				DCA767BF1ACEAF6A007E4C12 /* ValueTransformer.framework in Frameworks */,
+				DC516CF01ADAEF3C006112F2 /* Monocle.framework in Frameworks */,
 				DCA767961ACEAC7D007E4C12 /* Pistachio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,13 +198,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DC071B9D1A8810AC00DE471C /* Value Transformers */ = {
+		DC374CD81AE5B71E00A37122 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DC071B9E1A8810BE00DE471C /* NSNumberValueTransformers.swift */,
+				DC374CD91AE5B71E00A37122 /* LensExtensionsSpec.swift */,
 			);
-			name = "Value Transformers";
-			sourceTree = "<group>";
+			name = Extensions;
+			path = PistachioTests/Extensions;
+			sourceTree = SOURCE_ROOT;
 		};
 		DC492A021A83BB59007B52D6 = {
 			isa = PBXGroup;
@@ -184,12 +231,12 @@
 		DC492A0E1A83BB59007B52D6 /* Pistachio */ = {
 			isa = PBXGroup;
 			children = (
+				DC2077CE1A8544D7005A9CF2 /* AdapterType.swift */,
+				DCCF43DC1AE29E43009E0012 /* DictionaryAdapter.swift */,
+				DC7CEA1D1AE28D830049F077 /* LazyAdapter.swift */,
 				DC492A111A83BB59007B52D6 /* Pistachio.h */,
-				DC2077CE1A8544D7005A9CF2 /* Adapter.swift */,
-				DC492A281A83BB73007B52D6 /* Lens.swift */,
-				DC492A2D1A83BD33007B52D6 /* Utils.swift */,
-				DC492A351A84096D007B52D6 /* ValueTransformer.swift */,
-				DC071B9D1A8810AC00DE471C /* Value Transformers */,
+				DC7CEA151AE28B2F0049F077 /* Extensions */,
+				DC7CEA171AE28B2F0049F077 /* Value Transformers */,
 				DC492A0F1A83BB59007B52D6 /* Supporting Files */,
 			);
 			path = Pistachio;
@@ -206,10 +253,10 @@
 		DC492A1B1A83BB59007B52D6 /* PistachioTests */ = {
 			isa = PBXGroup;
 			children = (
-				DC13E2401A87D3F9006DC3CA /* AdapterSpec.swift */,
-				DC20783F1A868C25005A9CF2 /* LensSpec.swift */,
-				DC2078431A87C08A005A9CF2 /* UtilsSpec.swift */,
-				DC2078451A87CCC5005A9CF2 /* ValueTransformerSpec.swift */,
+				DCCF43EA1AE46775009E0012 /* DictionaryAdapterSpec.swift */,
+				DC13E2401A87D3F9006DC3CA /* LazyAdapterSpec.swift */,
+				DC374CD81AE5B71E00A37122 /* Extensions */,
+				DCCF43DF1AE2C807009E0012 /* Fixtures */,
 				DC492A1C1A83BB59007B52D6 /* Supporting Files */,
 			);
 			path = PistachioTests;
@@ -223,12 +270,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DC7CEA151AE28B2F0049F077 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DC7CEA161AE28B2F0049F077 /* LensExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DC7CEA171AE28B2F0049F077 /* Value Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				DC7CEA181AE28B2F0049F077 /* NSNumberValueTransformers.swift */,
+			);
+			path = "Value Transformers";
+			sourceTree = "<group>";
+		};
 		DCA767811ACEAB40007E4C12 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
 				DC20783A1A868B00005A9CF2 /* Quick.framework */,
 				DC2078391A868B00005A9CF2 /* Nimble.framework */,
-				DC3927E31A85365C00982AC1 /* LlamaKit.framework */,
+				DCE2DDE11AF1A42A0075FF3B /* Box.framework */,
+				DC516CCD1ADAEDAC006112F2 /* Result.framework */,
+				DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */,
+				DC516CD31ADAEE27006112F2 /* Monocle.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -238,9 +304,30 @@
 			children = (
 				DCA767A71ACEAD38007E4C12 /* Quick.framework */,
 				DCA767A61ACEAD38007E4C12 /* Nimble.framework */,
-				DCA767A41ACEACF9007E4C12 /* LlamaKit.framework */,
+				DCE2DDE21AF1A4340075FF3B /* Box.framework */,
+				DC516CE41ADAEED7006112F2 /* Result.framework */,
+				DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */,
+				DC516CE21ADAEED7006112F2 /* Monocle.framework */,
 			);
 			name = Mac;
+			sourceTree = "<group>";
+		};
+		DCCF43DF1AE2C807009E0012 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				DCCF43E71AE461E1009E0012 /* Counter.swift */,
+				DCCF43E01AE2C82E009E0012 /* Node.swift */,
+				DCCF43E31AE2E770009E0012 /* Value Transformers */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		DCCF43E31AE2E770009E0012 /* Value Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				DCCF43E41AE2E770009E0012 /* AnyObjectValueTransformers.swift */,
+			);
+			path = "Value Transformers";
 			sourceTree = "<group>";
 		};
 		DCDA378D1A93F6AB00C55699 /* Frameworks */ = {
@@ -427,11 +514,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC071B9F1A8810BE00DE471C /* NSNumberValueTransformers.swift in Sources */,
-				DC2077CF1A8544D7005A9CF2 /* Adapter.swift in Sources */,
-				DC492A361A84096D007B52D6 /* ValueTransformer.swift in Sources */,
-				DC492A291A83BB73007B52D6 /* Lens.swift in Sources */,
-				DC492A2E1A83BD33007B52D6 /* Utils.swift in Sources */,
+				DC7CEA1B1AE28B2F0049F077 /* NSNumberValueTransformers.swift in Sources */,
+				DC7CEA1E1AE28D830049F077 /* LazyAdapter.swift in Sources */,
+				DC2077CF1A8544D7005A9CF2 /* AdapterType.swift in Sources */,
+				DC7CEA191AE28B2F0049F077 /* LensExtensions.swift in Sources */,
+				DCCF43DD1AE29E43009E0012 /* DictionaryAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,10 +526,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC13E2411A87D3F9006DC3CA /* AdapterSpec.swift in Sources */,
-				DC2078461A87CCC5005A9CF2 /* ValueTransformerSpec.swift in Sources */,
-				DC2078441A87C08A005A9CF2 /* UtilsSpec.swift in Sources */,
-				DC2078401A868C25005A9CF2 /* LensSpec.swift in Sources */,
+				DCCF43EB1AE46775009E0012 /* DictionaryAdapterSpec.swift in Sources */,
+				DC13E2411A87D3F9006DC3CA /* LazyAdapterSpec.swift in Sources */,
+				DCCF43E11AE2C82E009E0012 /* Node.swift in Sources */,
+				DCCF43E81AE461E1009E0012 /* Counter.swift in Sources */,
+				DC374CDA1AE5B71E00A37122 /* LensExtensionsSpec.swift in Sources */,
+				DCCF43E51AE2E770009E0012 /* AnyObjectValueTransformers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,11 +539,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCA767B71ACEADB1007E4C12 /* ValueTransformer.swift in Sources */,
-				DCA767B31ACEADAB007E4C12 /* NSNumberValueTransformers.swift in Sources */,
-				DCA767B41ACEADB1007E4C12 /* Adapter.swift in Sources */,
-				DCA767B51ACEADB1007E4C12 /* Lens.swift in Sources */,
-				DCA767B61ACEADB1007E4C12 /* Utils.swift in Sources */,
+				DC7CEA1C1AE28B2F0049F077 /* NSNumberValueTransformers.swift in Sources */,
+				DC7CEA1F1AE28D830049F077 /* LazyAdapter.swift in Sources */,
+				DCA767B41ACEADB1007E4C12 /* AdapterType.swift in Sources */,
+				DC7CEA1A1AE28B2F0049F077 /* LensExtensions.swift in Sources */,
+				DCCF43DE1AE29E43009E0012 /* DictionaryAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,10 +551,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCA767B21ACEADA4007E4C12 /* ValueTransformerSpec.swift in Sources */,
-				DCA767B01ACEADA4007E4C12 /* LensSpec.swift in Sources */,
-				DCA767B11ACEADA4007E4C12 /* UtilsSpec.swift in Sources */,
-				DCA767AF1ACEADA4007E4C12 /* AdapterSpec.swift in Sources */,
+				DCCF43EC1AE46775009E0012 /* DictionaryAdapterSpec.swift in Sources */,
+				DCA767AF1ACEADA4007E4C12 /* LazyAdapterSpec.swift in Sources */,
+				DCCF43E21AE2C82E009E0012 /* Node.swift in Sources */,
+				DCCF43E91AE461E1009E0012 /* Counter.swift in Sources */,
+				DC374CDB1AE5B71E00A37122 /* LensExtensionsSpec.swift in Sources */,
+				DCCF43E61AE2E770009E0012 /* AnyObjectValueTransformers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,7 +611,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -562,7 +653,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
@@ -582,7 +673,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Pistachio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -600,7 +694,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Pistachio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -760,6 +857,7 @@
 				DCA767A01ACEAC7D007E4C12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DCA767A11ACEAC7D007E4C12 /* Build configuration list for PBXNativeTarget "Pistachio-MacTests" */ = {
 			isa = XCConfigurationList;
@@ -768,6 +866,7 @@
 				DCA767A31ACEAC7D007E4C12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

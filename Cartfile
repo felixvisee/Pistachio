@@ -1,1 +1,2 @@
-github "LlamaKit/LlamaKit" ~> 0.5
+github "felixjendrusch/ValueTransformer" ~> 2.2
+github "robb/Monocle" ~> 0.0.1
