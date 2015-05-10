@@ -1,5 +1,7 @@
 //  Copyright (c) 2015 Felix Jendrusch. All rights reserved.
 
+import Foundation
+
 import Quick
 import Nimble
 
