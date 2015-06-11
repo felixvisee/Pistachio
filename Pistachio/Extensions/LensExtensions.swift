@@ -20,7 +20,7 @@ public func lift<A, B, E>(lens: Lens<A, B>) -> Lens<Result<A, E>, Result<B, E>> 
 
 // MARK: - Map
 
-public func map<A, V: ReversibleValueTransformerType>(lens: Lens<A, V.ValueType>, reversibleValueTransformer: V) -> Lens<Result<A, V.ErrorType>, Result<V.TransformedValueType, V.ErrorType>> {
+public func map<A, V: ReversibleValueTransformerType>(lens: Lens<A, V.ValueType>, _ reversibleValueTransformer: V) -> Lens<Result<A, V.ErrorType>, Result<V.TransformedValueType, V.ErrorType>> {
     return map(lift(lens), reversibleValueTransformer)
 }
 
