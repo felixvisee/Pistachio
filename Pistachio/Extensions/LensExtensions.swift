@@ -24,7 +24,7 @@ public func map<A, V: ReversibleValueTransformerType>(lens: Lens<A, V.ValueType>
     return map(lift(lens), reversibleValueTransformer)
 }
 
-public func map<A, V: ReversibleValueTransformerType>(lens: Lens<Result<A, V.ErrorType>, Result<V.ValueType, V.ErrorType>>, reversibleValueTransformer: V) -> Lens<Result<A, V.ErrorType>, Result<V.TransformedValueType, V.ErrorType>> {
+public func map<A, V: ReversibleValueTransformerType>(lens: Lens<Result<A, V.ErrorType>, Result<V.ValueType, V.ErrorType>>, _ reversibleValueTransformer: V) -> Lens<Result<A, V.ErrorType>, Result<V.TransformedValueType, V.ErrorType>> {
     let get: Result<A, V.ErrorType> -> Result<V.TransformedValueType, V.ErrorType> = { a in
         return Monocle.get(lens, a).flatMap(transform(reversibleValueTransformer))
     }
