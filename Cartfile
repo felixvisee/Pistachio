@@ -1,2 +1,2 @@
-github "a2/ValueTransformer" "swift-2.0"
-github "a2/Monocle" "swift-2.0"
+github "felixjendrusch/ValueTransformer" ~> 2.3.0
+github "robb/Monocle" "swift-2.0"
