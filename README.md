@@ -125,7 +125,3 @@ Both `transform` and `reverseTransform` return a [`Result`](https://github.com/a
 ## Posts
 
 - [Working with immutable models in Swift](https://github.com/felixjendrusch/blog/blob/master/_posts/2015-02-14-working-with-immutable-models-in-swift.md) (February 14, 2015)
-
-## About
-
-Pistachio was built by [Felix Jendrusch](http://felixjendrusch.is) and [Robert Böhnke](http://robb.is). Greetings from Berlin :wave:
