@@ -27,7 +27,7 @@ public struct DictionaryAdapter<Key: Hashable, Value, TransformedValue, Error>: 
     }
 
     public func transform(value: Value) -> Result<TransformedValue, Error> {
-        return reduce(specification, Result.success([:])) { (result, element) in
+        return specification.reduce(Result.success([:])) { (result, element) in
             let (key, lens) = element
             return result.flatMap { (var dictionary) in
                 return get(lens, Result.success(value)).map { value in
@@ -42,9 +42,9 @@ public struct DictionaryAdapter<Key: Hashable, Value, TransformedValue, Error>: 
 
     public func reverseTransform(transformedValue: TransformedValue) -> Result<Value, Error> {
         return dictionaryTransformer.reverseTransform(transformedValue).flatMap { dictionary in
-            return reduce(self.specification, self.valueClosure(transformedValue)) { (result, element) in
+            return self.specification.reduce(self.valueClosure(transformedValue)) { (result, element) in
                 let (key, lens) = element
-                return map(dictionary[key]) { value in
+                return dictionary[key].map { value in
                     return set(lens, result, Result.success(value))
                 } ?? result
             }

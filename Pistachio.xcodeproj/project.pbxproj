@@ -59,9 +59,6 @@
 		DCCF43E91AE461E1009E0012 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E71AE461E1009E0012 /* Counter.swift */; };
 		DCCF43EB1AE46775009E0012 /* DictionaryAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43EA1AE46775009E0012 /* DictionaryAdapterSpec.swift */; };
 		DCCF43EC1AE46775009E0012 /* DictionaryAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43EA1AE46775009E0012 /* DictionaryAdapterSpec.swift */; };
-		DCE2DDE31AF1A4340075FF3B /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE2DDE21AF1A4340075FF3B /* Box.framework */; };
-		DCE2DDE41AF1A43C0075FF3B /* Box.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCE2DDE11AF1A42A0075FF3B /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DCE2DDE51AF1A4420075FF3B /* Box.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCE2DDE21AF1A4340075FF3B /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +87,6 @@
 			files = (
 				DC516CDE1ADAEEAE006112F2 /* Quick.framework in CopyFiles */,
 				DC516CDF1ADAEEAE006112F2 /* Nimble.framework in CopyFiles */,
-				DCE2DDE41AF1A43C0075FF3B /* Box.framework in CopyFiles */,
 				DC516CD01ADAEE08006112F2 /* Result.framework in CopyFiles */,
 				DCA767BE1ACEAF5A007E4C12 /* ValueTransformer.framework in CopyFiles */,
 				DC516CDD1ADAEEA3006112F2 /* Monocle.framework in CopyFiles */,
@@ -105,7 +101,6 @@
 			files = (
 				DC516CE71ADAEF2B006112F2 /* Quick.framework in CopyFiles */,
 				DC516CE81ADAEF2B006112F2 /* Nimble.framework in CopyFiles */,
-				DCE2DDE51AF1A4420075FF3B /* Box.framework in CopyFiles */,
 				DC516CEC1ADAEF2B006112F2 /* Result.framework in CopyFiles */,
 				DC516CED1ADAEF2B006112F2 /* ValueTransformer.framework in CopyFiles */,
 				DC516CEE1ADAEF2B006112F2 /* Monocle.framework in CopyFiles */,
@@ -143,8 +138,6 @@
 		DCCF43E41AE2E770009E0012 /* AnyObjectValueTransformers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyObjectValueTransformers.swift; sourceTree = "<group>"; };
 		DCCF43E71AE461E1009E0012 /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		DCCF43EA1AE46775009E0012 /* DictionaryAdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryAdapterSpec.swift; sourceTree = "<group>"; };
-		DCE2DDE11AF1A42A0075FF3B /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/iOS/Box.framework; sourceTree = "<group>"; };
-		DCE2DDE21AF1A4340075FF3B /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/Mac/Box.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +147,6 @@
 			files = (
 				DC516CCE1ADAEDAC006112F2 /* Result.framework in Frameworks */,
 				DCA767BA1ACEAF17007E4C12 /* ValueTransformer.framework in Frameworks */,
-				DCE2DDE31AF1A4340075FF3B /* Box.framework in Frameworks */,
 				DC516CD91ADAEE58006112F2 /* Monocle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,7 +283,6 @@
 			children = (
 				DC20783A1A868B00005A9CF2 /* Quick.framework */,
 				DC2078391A868B00005A9CF2 /* Nimble.framework */,
-				DCE2DDE11AF1A42A0075FF3B /* Box.framework */,
 				DC516CCD1ADAEDAC006112F2 /* Result.framework */,
 				DCA767B91ACEAF17007E4C12 /* ValueTransformer.framework */,
 				DC516CD31ADAEE27006112F2 /* Monocle.framework */,
@@ -304,7 +295,6 @@
 			children = (
 				DCA767A71ACEAD38007E4C12 /* Quick.framework */,
 				DCA767A61ACEAD38007E4C12 /* Nimble.framework */,
-				DCE2DDE21AF1A4340075FF3B /* Box.framework */,
 				DC516CE41ADAEED7006112F2 /* Result.framework */,
 				DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */,
 				DC516CE21ADAEED7006112F2 /* Monocle.framework */,
@@ -441,7 +431,8 @@
 		DC492A031A83BB59007B52D6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Felix Jendrusch";
 				TargetAttributes = {
 					DC492A0B1A83BB59007B52D6 = {
@@ -597,6 +588,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -673,13 +665,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = Pistachio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "is.felixjendrusch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -694,13 +684,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = Pistachio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "is.felixjendrusch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)";
 				SKIP_INSTALL = YES;
 			};
@@ -720,6 +708,7 @@
 				);
 				INFOPLIST_FILE = PistachioTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "is.felixjendrusch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)Tests";
 			};
 			name = Debug;
@@ -734,6 +723,7 @@
 				);
 				INFOPLIST_FILE = PistachioTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "is.felixjendrusch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)Tests";
 			};
 			name = Release;
@@ -755,6 +745,7 @@
 				INFOPLIST_FILE = Pistachio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "is.felixjendrusch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -776,6 +767,7 @@
 				INFOPLIST_FILE = Pistachio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "is.felixjendrusch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -797,6 +789,7 @@
 				);
 				INFOPLIST_FILE = PistachioTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "is.felixjendrusch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)Tests";
 				SDKROOT = macosx;
 			};
@@ -815,6 +808,7 @@
 				);
 				INFOPLIST_FILE = PistachioTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "is.felixjendrusch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)Tests";
 				SDKROOT = macosx;
 			};
