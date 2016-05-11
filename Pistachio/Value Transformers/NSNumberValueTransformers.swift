@@ -118,11 +118,12 @@ public struct NSNumberValueTransformers {
         })
     }
 
-    public static func unsignedInteger<E>() -> ReversibleValueTransformer<Int, NSNumber, E> {
+    public static func unsignedInteger<E>() -> ReversibleValueTransformer<UInt, NSNumber, E> {
         return ReversibleValueTransformer(transformClosure: { value in
             return Result.success(NSNumber(unsignedInteger: value))
         }, reverseTransformClosure: { transformedValue in
-            return Result.success(transformedValue.unsignedIntegerValue)
+            let number = transformedValue.unsignedIntegerValue
+            return Result.success(number)
         })
     }
 }

@@ -13,7 +13,7 @@ struct AnyObjectValueTransformers {
         case let transformedValue as Int:
             return Result.success(transformedValue)
         default:
-            return Result.failure(NSError())
+            return Result.failure(NSError(domain: "domain", code: 1, userInfo: nil))
         }
     })
 
@@ -24,7 +24,7 @@ struct AnyObjectValueTransformers {
         case let transformedValue as [AnyObject]:
             return Result.success(transformedValue)
         default:
-            return Result.failure(NSError())
+            return Result.failure(NSError(domain: "domain", code: 1, userInfo: nil))
         }
     })
 
@@ -35,7 +35,7 @@ struct AnyObjectValueTransformers {
         case let transformedValue as [String: AnyObject]:
             return Result.success(transformedValue)
         default:
-            return Result.failure(NSError())
+            return Result.failure(NSError(domain: "domain", code: 1, userInfo: nil))
         }
     })
 }

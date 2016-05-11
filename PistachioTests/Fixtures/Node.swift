@@ -21,7 +21,7 @@ struct NodeLenses {
 struct NodeAdapters {
     static let anyObject = fix { adapter in
         return DictionaryAdapter(specification: [
-            "children": map(NodeLenses.children, lift(adapter) >>> AnyObjectValueTransformers.array)
+            "children": map(NodeLenses.children, reversibleValueTransformer: lift(adapter) >>> AnyObjectValueTransformers.array)
         ], dictionaryTransformer: AnyObjectValueTransformers.dictionary, value: Node(children: []))
     }
 }
