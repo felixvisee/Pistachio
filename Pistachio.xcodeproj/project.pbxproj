@@ -59,8 +59,6 @@
 		DCCF43E91AE461E1009E0012 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E71AE461E1009E0012 /* Counter.swift */; };
 		DCCF43EB1AE46775009E0012 /* DictionaryAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43EA1AE46775009E0012 /* DictionaryAdapterSpec.swift */; };
 		DCCF43EC1AE46775009E0012 /* DictionaryAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43EA1AE46775009E0012 /* DictionaryAdapterSpec.swift */; };
-		DCE2DDE31AF1A4340075FF3B /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE2DDE21AF1A4340075FF3B /* Box.framework */; };
-		DCE2DDE41AF1A43C0075FF3B /* Box.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCE2DDE11AF1A42A0075FF3B /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCE2DDE51AF1A4420075FF3B /* Box.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCE2DDE21AF1A4340075FF3B /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -90,7 +88,6 @@
 			files = (
 				DC516CDE1ADAEEAE006112F2 /* Quick.framework in CopyFiles */,
 				DC516CDF1ADAEEAE006112F2 /* Nimble.framework in CopyFiles */,
-				DCE2DDE41AF1A43C0075FF3B /* Box.framework in CopyFiles */,
 				DC516CD01ADAEE08006112F2 /* Result.framework in CopyFiles */,
 				DCA767BE1ACEAF5A007E4C12 /* ValueTransformer.framework in CopyFiles */,
 				DC516CDD1ADAEEA3006112F2 /* Monocle.framework in CopyFiles */,
@@ -154,7 +151,6 @@
 			files = (
 				DC516CCE1ADAEDAC006112F2 /* Result.framework in Frameworks */,
 				DCA767BA1ACEAF17007E4C12 /* ValueTransformer.framework in Frameworks */,
-				DCE2DDE31AF1A4340075FF3B /* Box.framework in Frameworks */,
 				DC516CD91ADAEE58006112F2 /* Monocle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
