@@ -12,7 +12,7 @@ public func lift<A, B, E>(lens: Lens<A, B>) -> Lens<Result<A, E>, Result<B, E>> 
     }
 
     let set: (Result<A, E>, Result<B, E>) -> Result<A, E> = { a, b in
-        return a.flatMap { a in b.map { b in Monocle.set(lens, a, b) } }
+        return a.flatMap { a in b.map { b in Monocle.set(lens, a: a, b: b) } }
     }
 
     return Lens(get: get, set: set)
@@ -21,16 +21,16 @@ public func lift<A, B, E>(lens: Lens<A, B>) -> Lens<Result<A, E>, Result<B, E>> 
 // MARK: - Map
 
 public func map<A, V: ReversibleValueTransformerType>(lens: Lens<A, V.ValueType>, reversibleValueTransformer: V) -> Lens<Result<A, V.ErrorType>, Result<V.TransformedValueType, V.ErrorType>> {
-    return map(lift(lens), reversibleValueTransformer)
+    return map(lift(lens), reversibleValueTransformer: reversibleValueTransformer)
 }
 
 public func map<A, V: ReversibleValueTransformerType>(lens: Lens<Result<A, V.ErrorType>, Result<V.ValueType, V.ErrorType>>, reversibleValueTransformer: V) -> Lens<Result<A, V.ErrorType>, Result<V.TransformedValueType, V.ErrorType>> {
     let get: Result<A, V.ErrorType> -> Result<V.TransformedValueType, V.ErrorType> = { a in
-        return Monocle.get(lens, a).flatMap(transform(reversibleValueTransformer))
+        return Monocle.get(lens, a: a).flatMap(transform(reversibleValueTransformer))
     }
 
     let set: (Result<A, V.ErrorType>, Result<V.TransformedValueType, V.ErrorType>) -> Result<A, V.ErrorType> = { a, c in
-        return Monocle.set(lens, a, c.flatMap(reverseTransform(reversibleValueTransformer)))
+        return Monocle.set(lens, a: a, b: c.flatMap(reverseTransform(reversibleValueTransformer)))
     }
 
     return Lens(get: get, set: set)

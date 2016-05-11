@@ -8,7 +8,7 @@ import Pistachio
 class DictionaryAdapterSpec: QuickSpec {
     override func spec() {
         describe("A DictionaryAdapter") {
-            var adapter = CounterAdapters.anyObject
+            let adapter = CounterAdapters.anyObject
 
             it("should transform a value") {
                 let result = adapter.transform(Counter(count: 1))

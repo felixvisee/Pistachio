@@ -20,6 +20,6 @@ struct CounterLenses {
 
 struct CounterAdapters {
     static let anyObject = DictionaryAdapter(specification: [
-        "count": map(CounterLenses.count, AnyObjectValueTransformers.int)
+        "count": map(CounterLenses.count, reversibleValueTransformer: AnyObjectValueTransformers.int)
     ], dictionaryTransformer: AnyObjectValueTransformers.dictionary, value: Counter(count: 0))
 }
